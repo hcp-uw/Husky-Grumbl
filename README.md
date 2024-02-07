@@ -1,4 +1,4 @@
-Elizabeth Wang, Shreya Pandey, Kevin, 
+Elizabeth Wang, Shreya Pandey, Kevin Kim
 
 
 # FastAPI Starter
