@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-Elizabeth Wang, Raiden Santos
 =======
 Elizabeth Wang, Shreya Pandey, Kevin Kim, Raiden Santos
 
