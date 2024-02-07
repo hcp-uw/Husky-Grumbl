@@ -1,5 +1,5 @@
-# Authors
-Elizabeth Wang, Shreya Pandey
+Elizabeth Wang, Shreya Pandey, Kevin Kim
+
 
 # FastAPI Starter
 
