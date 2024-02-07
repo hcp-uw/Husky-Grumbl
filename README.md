@@ -1,4 +1,4 @@
-Elizabeth Wang
+Elizabeth Wang, Raiden Santos
 
 # FastAPI Starter
 
