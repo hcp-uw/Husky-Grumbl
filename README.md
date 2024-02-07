@@ -1,4 +1,5 @@
-Elizabeth Wang
+# Authors
+Elizabeth Wang, Shreya Pandey
 
 # FastAPI Starter
 
