@@ -1,9 +1,8 @@
 <<<<<<< HEAD
-Elizabeth Wang
+Elizabeth Wang, Raiden Santos
 =======
 Elizabeth Wang, Shreya Pandey, Kevin Kim, Raiden Santos
 
->>>>>>> febcf085315cc78ec03a348f6e21b9315645c3b4
 
 # FastAPI Starter
 
