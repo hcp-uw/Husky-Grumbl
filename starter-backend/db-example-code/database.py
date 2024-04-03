@@ -7,10 +7,11 @@ load_dotenv()
 
 # Function that creates a connection pool
 async def create_db_pool():
-    # Create connection pool using credentials from .env file
     return await asyncpg.create_pool(
-        user = getenv("DB_USER"),
-        password = getenv("DB_PASSWORD"),
-        database = getenv("DB_NAME"),
-        host = getenv("DB_HOST"),
+        user = os.getenv("DB_USER"),
+        password = os.getenv("DB_PASSWORD"),
+        database = os.getenv("DB_NAME"),
+        host = os.getenv("DB_HOST"),
+        port=5432
     )
+
