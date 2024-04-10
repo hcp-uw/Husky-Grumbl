@@ -3,3 +3,4 @@ starter-frontend/build/*
 *__pycache__*
 *node_modules*
 .env
+*venv*
