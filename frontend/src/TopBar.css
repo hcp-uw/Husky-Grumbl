@@ -1,0 +1,29 @@
+/* TopBar.css */
+
+.top-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Style for the Contact Us button */
+.contact-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 20px; /* Add some margin to separate it from other content */
+    cursor: pointer;
+  }
+  
+  /* Hover effect for the Contact Us button */
+  .contact-button:hover {
+    background-color: #45a049;
+  }
