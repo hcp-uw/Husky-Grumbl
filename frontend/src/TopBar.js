@@ -4,19 +4,12 @@ import './TopBar.css';
 
 const TopBar = () => {
 
-//   const handleContactClick = () => {
-//     // Logic to execute when the button is clicked
-//     console.log('Contact Us button clicked!');
-//     // You can add more logic here, like opening a contact form modal, navigating to a contact page, etc.
-//   };
   return (
     <div className="top-bar">
-      <h1>My Top Bar</h1>
-      <button Link to="/contact-us" className="contact-button">Contact Us</button>
+      <Link to="/home-page" className="top-bar-title">Husky-Grumbl</Link>
+      <Link Link to="/contact-us" className="contact-button">Contact Us</Link>
     </div>
   );
-
-
 }
 
 export default TopBar;

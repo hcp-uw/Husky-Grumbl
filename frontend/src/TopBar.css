@@ -1,7 +1,7 @@
 /* TopBar.css */
 
 .top-bar {
-    background-color: #333;
+    background-color: #CFB9DF;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -11,9 +11,11 @@
   
   /* Style for the Contact Us button */
 .contact-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
+    background-color: none;
+    /* border: none; */
+    border: 2px solid #583370; /* Purple border */
+    color: #583370;
+    /* color: white; */
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -25,5 +27,14 @@
   
   /* Hover effect for the Contact Us button */
   .contact-button:hover {
-    background-color: #45a049;
+    background-color: #C6ABD8;
   }
+
+  .top-bar-title {
+    margin: 15px; /* Remove default margin */
+    font-size: 2rem; /* Adjust font size as needed */
+    text-decoration: none; /* Remove default underline */
+    color: #583370; /* Set text color */
+    /* Add any additional styles you want for the title */
+  }
+

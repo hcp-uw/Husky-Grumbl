@@ -1,0 +1,54 @@
+.home-header {
+    position: relative; 
+    background-image: url('./images/seattle-home-header-background.jpeg');
+    color: #fff;
+    padding: 160px 20px;
+    /* background-size: contain;
+    background-repeat: no-repeat; */
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.home-header::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position the pseudo-element absolutely */
+    top: 0; /* Align the pseudo-element to the top of the parent */
+    left: 0; /* Align the pseudo-element to the left of the parent */
+    width: 100%; /* Cover the entire width of the parent */
+    height: 100%; /* Cover the entire height of the parent */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black color */
+    z-index: 0;
+}
+
+.home-header-content {
+    position: relative; /* Ensure content is positioned relative to the header */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+}
+
+  /* Style for the Explore Page button */
+  .explore-button {
+    background-color: none;
+    /* border: none; */
+    border: 2px solid #fff; /* Purple border */
+    color: #fff;
+    /* color: white; */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 20px; /* Add some margin to separate it from other content */
+    cursor: pointer;
+  }
+  
+  /* Hover effect for the Contact Us button */
+  .explore-button:hover {
+    background-color: #C6ABD8;
+  }
