@@ -154,6 +154,8 @@ currLocCoords = (g.latlng[0], g.latlng[1])
 currLocCoordsURL = str(g.latlng[0]) + "%2C" + str(g.latlng[1])
 url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + currLocCoordsURL
 
+
+
 keyword = input("What type of cuisine? (Hit enter for all types)").lower().replace(" ", "%20")
 keyword = "&keyword=" + keyword
 url = url + keyword
@@ -267,8 +269,8 @@ for i in range(numPlaces):
     except KeyError as e:
         pass
 
-restInstVars = vars(rest)
-restInstVarList.append(restInstVars)
+    restInstVars = vars(rest)
+    restInstVarList.append(restInstVars)
 
 for r in restInstVarList:
     print(r["name"] + ": ")
@@ -282,3 +284,4 @@ print(randomChoice["name"] + ": ")
 for i in range(1, 8):
     a = restAttributesList[i]
     print("\t" + a + ": " + str(randomChoice[a]))
+
