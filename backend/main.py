@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from restaurants import get_food_recommendations
 import uvicorn
-
 
 # Create a FastAPI instance
 app = FastAPI()
@@ -29,3 +29,9 @@ app.add_middleware(
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)
+
+# Endpoint to get recommendations
+@app.get("/recommendations")
+async def get_recommendations(location: str):
+    recommendations = get_food_recommendations(location)
+    return recommendations
