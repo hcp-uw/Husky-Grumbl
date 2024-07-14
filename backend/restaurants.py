@@ -6,7 +6,7 @@ import geopy.distance
 
 api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4"
 
-def get_food_recommendations(location, keyword, minprice, maxprice, opennow, radius):
+def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
     url = build_url(keyword, minprice, maxprice, opennow, radius)
     response = requests.request("GET", url)
     response = json.loads(response.text)
@@ -24,12 +24,13 @@ def get_food_recommendations(location, keyword, minprice, maxprice, opennow, rad
 
     return restInstVarList
 
-def build_url(location, keyword, minprice, maxprice, opennow, radius):
-    g = geocoder.ip('me')
+def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
+    # g = geocoder.ip('me')
     # currLocCoords = (g.latlng[0], g.latlng[1])
-    currLocCoordsURL = str(g.latlng[0]) + "%2C" + str(g.latlng[1])
+    # currLocCoordsURL = str(g.latlng[0]) + "%2C" + str(g.latlng[1])
+    currLocCoordsURL = latitude + "%2C" + longitude
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + currLocCoordsURL
-    
+
     url += "&keyword=" + keyword 
 
     if minprice != "":
