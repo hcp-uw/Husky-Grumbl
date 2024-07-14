@@ -20,7 +20,7 @@ def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, o
 
     numPlaces = len(results)
     # restAttributesList = ["name", "businessStatus", "openNow", "priceLevel", "rating", "totalUserRatings", "distance", "address"]
-    restInstVarList = build_recs(results)
+    restInstVarList = build_recs(len(results), results)
 
     return restInstVarList
 
@@ -126,7 +126,31 @@ def build_recs(numPlaces, results):
 
     return restInstVarList
 
+if __name__ == "__main__":
+    g = geocoder.ip('me')
+    currLocCoords = (g.latlng[0], g.latlng[1])
+    print(f"Current Location Coordinates: {currLocCoords}")  # Debug: Print current location coordinates
 
+    keyword = input("What type of cuisine? (Hit enter for all types)").lower().replace(" ", "%20")
+    minprice = input("Minimum price? Enter $ for inexpensive (under $10), $$ for moderately expensive ($10 - $25), $$$ for expensive ($25 - $45), $$$$ for very expensive ($50 +).")
+    maxprice = input("Maximum price? Enter $ for inexpensive (under $10), $$ for moderately expensive ($10 - $25), $$$ for expensive ($25 - $45), $$$$ for very expensive ($50 +).")
+    opennow = input("Do you want it to be open now? (Y or N) ").lower()
+    radius = input("What is the maximum distance you are willing to travel in miles? ")
+
+    recommendations = get_food_recommendations(currLocCoords, keyword, minprice, maxprice, opennow, radius)
+
+    print(len(recommendations), " restaurants found!")
+    for r in recommendations:
+        print(r["name"] + ": ")
+        for attr, value in r.items():
+            print(f"\t{attr}: {value}")
+        print("\n")
+
+    if recommendations:
+        randomChoice = random.choice(recommendations)
+        print(randomChoice["name"] + ": ")
+        for attr, value in randomChoice.items():
+            print(f"\t{attr}: {value}")
 
 
 # keyword = input("What type of cuisine? (Hit enter for all types)").lower().replace(" ", "%20")
