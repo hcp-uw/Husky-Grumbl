@@ -48,6 +48,7 @@
   font-size: 16px;
   margin-right: 20px; /* Add some margin to separate it from other content */
   cursor: pointer;
+
   z-index: 1
 }
 
