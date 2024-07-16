@@ -1,40 +1,41 @@
 /* TopBar.css */
 
 .top-bar {
-    background-color: #CFB9DF;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Style for the Contact Us button */
+  background-color: #CFB9DF;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+/* Style for the Contact Us button */
 .contact-button {
-    background-color: none;
-    /* border: none; */
-    border: 2px solid #583370; /* Purple border */
-    color: #583370;
-    /* color: white; */
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 20px; /* Add some margin to separate it from other content */
-    cursor: pointer;
-  }
-  
-  /* Hover effect for the Contact Us button */
-  .contact-button:hover {
-    background-color: #C6ABD8;
-  }
+  background-color: none;
+  /* border: none; */
+  border: 2px solid #583370; /* Purple border */
+  color: #583370;
+  /* color: white; */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 20px; /* Add some margin to separate it from other content */
+  cursor: pointer;
+}
 
-  .top-bar-title {
-    margin: 15px; /* Remove default margin */
-    font-size: 2rem; /* Adjust font size as needed */
-    text-decoration: none; /* Remove default underline */
-    color: #583370; /* Set text color */
-    /* Add any additional styles you want for the title */
-  }
+/* Hover effect for the Contact Us button */
+.contact-button:hover {
+  background-color: #C6ABD8;
+}
 
+.top-bar-title {
+  margin: 15px; /* Remove default margin */
+  font-size: 2rem; /* Adjust font size as needed */
+  text-decoration: none; /* Remove default underline */
+  color: #583370; /* Set text color */
+  /* Add any additional styles you want for the title */
+}
