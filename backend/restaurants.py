@@ -3,6 +3,7 @@ import geocoder
 import requests
 import json
 import geopy.distance
+import restaurant
 
 api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4"
 
@@ -53,16 +54,16 @@ def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
 
     return url
 
-class restaurant:
-    def __init__(self):
-        self.name = ""
-        self.businessStatus = ""
-        self.openNow = ""
-        self.priceLevel = ""
-        self.rating = -1
-        self.totalUserRatings = -1
-        self.distance = -1
-        self.address = ""
+# class restaurant:
+#     def __init__(self):
+#         self.name = ""
+#         self.businessStatus = ""
+#         self.openNow = ""
+#         self.priceLevel = ""
+#         self.rating = -1
+#         self.totalUserRatings = -1
+#         self.distance = -1
+#         self.address = ""
 
 def build_recs(numPlaces, results):
     restInstVarList = []

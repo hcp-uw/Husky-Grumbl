@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Query
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from restaurants import get_food_recommendations
 import uvicorn
 from app import app
 
@@ -35,16 +34,16 @@ if __name__ == "__main__":
 if __name__ == '__main__':
     app.run(debug=True)
 
-# Endpoint to get recommendations
-@app.get("/recommendations")
-async def get_recommendations(
-    latitude: str = Query(..., description="Latitude"),
-    longitude: str = Query(..., description = "Longitude"),
-    keyword: str = Query('', description="Keyword for restaurant search"),
-    minprice: int = Query(0, description="Minimum price level ($-$$$$)"),
-    maxprice: int = Query(4, description="Maximum price level ($-$$$$)"),
-    opennow: bool = Query(True, description="Whether only open restaurants should be returned"),
-    radius: int = Query(1000, description="Radius in meters for search area"),
-):
-    recommendations = get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
-    return recommendations
+# # Endpoint to get recommendations
+# @app.get("/recommendations")
+# async def get_recommendations(
+#     latitude: str = Query(..., description="Latitude"),
+#     longitude: str = Query(..., description = "Longitude"),
+#     keyword: str = Query('', description="Keyword for restaurant search"),
+#     minprice: int = Query(0, description="Minimum price level ($-$$$$)"),
+#     maxprice: int = Query(4, description="Maximum price level ($-$$$$)"),
+#     opennow: bool = Query(True, description="Whether only open restaurants should be returned"),
+#     radius: int = Query(1000, description="Radius in meters for search area"),
+# ):
+#     recommendations = get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
+#     return recommendations
