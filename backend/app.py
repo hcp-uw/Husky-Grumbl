@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from restaurants import get_food_recommendations
 
 app = Flask(__name__)
 
@@ -13,6 +14,10 @@ def save_location():
     opennow = data.get('opennow', True)
     radius = data.get('radius', 1000)
     
+    # Call func in restaurants.ppy to recommend food options
+    recommendations = get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
+
+    # Debugging
     print(f"Received location: Latitude - {latitude}, Longitude - {longitude}")
     print(f"Keyword: {keyword}, Min Price: {minprice}, Max Price: {maxprice}, Open Now: {opennow}, Radius: {radius}")
 
