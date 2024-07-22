@@ -1,0 +1,138 @@
+/* ExplorePage.css */
+
+.explore-page {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .explore-content {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .sidebar {
+    width: 20%;
+    padding: 10px;
+    background-color: #f4f4f4;
+  }
+  
+  .sidebar h3 {
+    margin-top: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox {
+    display: none;
+  }
+  
+  .checkbox + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+  }
+  
+  .checkbox + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+  }
+  
+  .checkbox:checked + label:before {
+    background: #583370; /* Change this to the desired color */
+    border-color: #583370; /* Change this to the desired color */
+  }
+  
+  .checkbox:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+  }
+  
+  .price-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .price-slider span {
+    font-weight: bold;
+  }
+  
+  .sidebar input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #CFB9DF;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+  }
+  
+  .sidebar input[type="range"]:hover {
+    opacity: 1;
+  }
+  
+  .sidebar input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #583370; /* Change this to the desired thumb color */
+    cursor: pointer;
+  }
+  
+  .sidebar input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #583370; /* Change this to the desired thumb color */
+    cursor: pointer;
+  }
+  
+  .search-results {
+    width: 80%;
+    padding: 10px;
+  }
+  
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    width: 80%;
+    padding: 10px;
+  }
+  
+  .go-button {
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
