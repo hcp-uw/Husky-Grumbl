@@ -20,7 +20,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Here you can add logic to send form data to a server
+    // Can be used to send user data to server
   };
 
   return (
