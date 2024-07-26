@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align items to the top */
+  justify-content: flex-start; 
   padding-top: 50px; /* Add some padding to the top */
   font-size: calc(10px + 2vmin);
   color: black;
@@ -42,20 +42,21 @@
   border-radius: 20px;
   color: black;
   background-color: #D9D9D9;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  font-family: Arial, sans-serif; 
   font-size: 18px;
+
 }
 
 .form-group input,
 .form-group textarea {
-  width: 662px; /* Adjusted width to fit within the padding */
+  width: 662px; 
   height: 30px;
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 20px;
   color: black;
   background-color: #D9D9D9;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  font-family: Arial, sans-serif;
   font-size: 18px;
 }
 
