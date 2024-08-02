@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from restaurants import get_food_recommendations
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/save-location', methods=['POST'])
 def save_location():
@@ -22,6 +24,8 @@ def save_location():
     print(f"Keyword: {keyword}, Min Price: {minprice}, Max Price: {maxprice}, Open Now: {opennow}, Radius: {radius}")
 
     # You can add more processing or saving to a database here
+
+    return jsonify(recommendations)
 
 if __name__ == '__main__':
     app.run(debug=True)
