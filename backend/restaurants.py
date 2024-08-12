@@ -8,7 +8,7 @@ import restaurant
 api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4"
 
 def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
-    url = build_url(keyword, minprice, maxprice, opennow, radius)
+    url = build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
     response = requests.request("GET", url)
     response = json.loads(response.text)
     status = response['status']
@@ -29,7 +29,7 @@ def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
     # g = geocoder.ip('me')
     # currLocCoords = (g.latlng[0], g.latlng[1])
     # currLocCoordsURL = str(g.latlng[0]) + "%2C" + str(g.latlng[1])
-    currLocCoordsURL = latitude + "%2C" + longitude
+    currLocCoordsURL = str(latitude) + "%2C" + str(longitude)
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + currLocCoordsURL
 
     url += "&keyword=" + keyword 
@@ -130,7 +130,8 @@ def build_recs(numPlaces, results):
 if __name__ == "__main__":
     g = geocoder.ip('me')
     currLocCoords = (g.latlng[0], g.latlng[1])
-    print(f"Current Location Coordinates: {currLocCoords}")  # Debug: Print current location coordinates
+    latitude = g.latlng[0]
+    longitude = g.latlng[1]
 
     keyword = input("What type of cuisine? (Hit enter for all types)").lower().replace(" ", "%20")
     minprice = input("Minimum price? Enter $ for inexpensive (under $10), $$ for moderately expensive ($10 - $25), $$$ for expensive ($25 - $45), $$$$ for very expensive ($50 +).")
@@ -138,7 +139,7 @@ if __name__ == "__main__":
     opennow = input("Do you want it to be open now? (Y or N) ").lower()
     radius = input("What is the maximum distance you are willing to travel in miles? ")
 
-    recommendations = get_food_recommendations(currLocCoords, keyword, minprice, maxprice, opennow, radius)
+    recommendations = get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
 
     print(len(recommendations), " restaurants found!")
     for r in recommendations:
