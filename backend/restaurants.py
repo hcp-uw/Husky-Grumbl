@@ -5,7 +5,8 @@ import json
 import geopy.distance
 import restaurant
 
-api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4"
+# my_api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4" # (Shreya's Key)
+my_api_key = "&key=AIzaSyBsfTYeutSAt0mTeJ-_tSWas2lhlymwIlE" # (Mayee's Key)
 
 def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
     url = build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
