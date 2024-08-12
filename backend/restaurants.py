@@ -51,20 +51,20 @@ def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
     else:
         url += "&radius=3200"
 
-    url += "&type=restaurant" + api_key
+    url += "&type=restaurant" + my_api_key
 
     return url
 
-# class restaurant:
-#     def __init__(self):
-#         self.name = ""
-#         self.businessStatus = ""
-#         self.openNow = ""
-#         self.priceLevel = ""
-#         self.rating = -1
-#         self.totalUserRatings = -1
-#         self.distance = -1
-#         self.address = ""
+class restaurant:
+    def __init__(self):
+        self.name = ""
+        self.businessStatus = ""
+        self.openNow = ""
+        self.priceLevel = ""
+        self.rating = -1
+        self.totalUserRatings = -1
+        self.distance = -1
+        self.address = ""
 
 def build_recs(numPlaces, results):
     restInstVarList = []

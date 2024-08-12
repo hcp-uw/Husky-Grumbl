@@ -6,27 +6,39 @@ import TopBar from './TopBar';
 import ContactUs from './ContactUs'; 
 import HomePage from './HomePage'; 
 import ExplorePage from './ExplorePage'; 
+import React from 'react';
+import './App.css';
+import Quotes from "./Quotes";
 
 function realApiCall(name) {
   return axios.get(`http://localhost:8000/greeting/${name}`)
 }
 
+// function App() {
+//   return (
+//     <Router>
+//       <div>
+//         <TopBar />
+//         <Routes>
+//           <Route path="/home-page" element={<HomePage />} />
+//           <Route path="/explore-page" element={<ExplorePage />} />
+//           <Route path="/contact-us" element={<ContactUs />}>
+          
+//             {/* <ContactUs /> */}
+//           </Route>
+//           {/* Define other routes if needed */}
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// }
 function App() {
   return (
-    <Router>
-      <div>
-        <TopBar />
-        <Routes>
-          <Route path="/home-page" element={<HomePage />} />
-          <Route path="/explore-page" element={<ExplorePage />} />
-          <Route path="/contact-us" element={<ContactUs />}>
-          
-            {/* <ContactUs /> */}
-          </Route>
-          {/* Define other routes if needed */}
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <Quotes />
+      </header>
+    </div>
   );
 }
 
