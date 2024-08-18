@@ -26,7 +26,7 @@
   width: 100%; /* Cover the entire width of the parent */
   height: 100%; /* Cover the entire height of the parent */
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black color */
-  z-index: 0;
+  z-index: 1;
 }
 
 .home-header-content {
@@ -48,6 +48,7 @@
   font-size: 16px;
   margin-right: 20px; /* Add some margin to separate it from other content */
   cursor: pointer;
+  z-index: 1
 }
 
 /* Hover effect for the Contact Us button */
