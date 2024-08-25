@@ -16,16 +16,16 @@
     text-align: center;
 }
 
-.home-header::before {
-    content: ''; /* Required for pseudo-element */
-    position: absolute; /* Position the pseudo-element absolutely */
-    top: 0; /* Align the pseudo-element to the top of the parent */
-    left: 0; /* Align the pseudo-element to the left of the parent */
-    width: 100%; /* Cover the entire width of the parent */
-    height: 100%; /* Cover the entire height of the parent */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black color */
-    z-index: 0;
-}
+/*.home-header::before {*/
+    /* content: ''; Required for pseudo-element */
+    /* position: absolute; Position the pseudo-element absolutely */
+    /* top: 0; Align the pseudo-element to the top of the parent */
+    /* left: 0; Align the pseudo-element to the left of the parent */
+    /* width: 100%; Cover the entire width of the parent */
+    /* height: 100%; Cover the entire height of the parent */
+    /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent black color */
+    /* z-index: 0; */
+/* } */
 
 .home-header-content {
     position: relative; /* Ensure content is positioned relative to the header */
@@ -50,5 +50,5 @@
   
   /* Hover effect for the Contact Us button */
   .explore-button:hover {
-    background-color: #C6ABD8;
+    background-color: #000000;
   }
