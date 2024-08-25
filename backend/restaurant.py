@@ -1,10 +1,10 @@
-class restaurant:
+class Restaurant:
     def __init__(self):
         self.name = ""
-        self.businessStatus = ""
-        self.openNow = False
-        self.priceLevel = ""
+        self.business_status = ""
+        self.open_now = False
+        self.price_level = ""
         self.rating = -1
-        self.totalUserRatings = -1
+        self.total_user_ratings = -1
         self.distance = -1
         self.address = ""
