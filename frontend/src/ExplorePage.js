@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ExplorePage.css';
+import RestaurantCard from './RestaurantCard';
 
 const ExplorePage = () => {
   const [priceLevel, setPriceLevel] = useState(1);
@@ -107,7 +108,17 @@ const ExplorePage = () => {
             <input type="text" placeholder="Search" className="search-bar" />
             <button className="go-button">Go</button>
           </div>
-          {/* Search results will be displayed here */}
+          <RestaurantCard
+            {...{
+              restaurantName: 'Aladdins',
+              cuisine: 'Medditerannean',
+              totalRatings: 123,
+              distance: '2 miles',
+              price: '$',
+              rating: '4.2',
+              isOpen: true
+          }}
+        />
         </div>
       </div>
     </div>
