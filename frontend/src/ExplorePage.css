@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 /* ExplorePage.css */
 
+/* General Page Layout */
 .explore-page {
     display: flex;
     flex-direction: column;
@@ -9,13 +12,40 @@
     display: flex;
     flex-direction: row;
   }
-  
+
   .sidebar {
-    width: 20%;
-    padding: 10px;
-    background-color: #f4f4f4;
+    width: 25%;
+    padding: 20px;
+    background-color: #9165B7;
+    border-radius: 10px;
   }
   
+  .search-results {
+    width: 80%;
+    padding: 10px;
+  }
+  
+  /* Header Styles */
+  .explore-header {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .explore-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #9165B7;
+    font-family: 'Moderustic', sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  .highlighted-text {
+    color: #4F1964;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  /* Sidebar Styles */
   .sidebar h3 {
     margin-top: 20px;
   }
@@ -29,16 +59,29 @@
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-  }
+  } */
   
+  /* Checkbox Styles */
   .checkbox {
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
   }
-  
+
   .checkbox + label {
     position: relative;
     padding-left: 25px;
     cursor: pointer;
+  }
+  
+  .label-text {
+    color: white;
+    font-family: 'Moderustic', sans-serif;
+    font-size: 15px;
+  }
+
+  .section {
+    color: white;
+    font-family: 'Moderustic', sans-serif;
   }
   
   .checkbox + label:before {
@@ -55,8 +98,8 @@
   }
   
   .checkbox:checked + label:before {
-    background: #583370; /* Change this to the desired color */
-    border-color: #583370; /* Change this to the desired color */
+    background: #4B227C;
+    border-color: #4B227C;
   }
   
   .checkbox:checked + label:after {
@@ -70,7 +113,8 @@
     border: solid #fff;
     border-width: 0 2px 2px 0;
   }
-  
+
+  /* Price Slider Styles */
   .price-slider {
     display: flex;
     align-items: center;
@@ -86,7 +130,7 @@
     -webkit-appearance: none;
     appearance: none;
     height: 8px;
-    background: #CFB9DF;
+    background: #fff;
     outline: none;
     opacity: 0.7;
     transition: opacity .2s;
@@ -102,7 +146,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #583370; /* Change this to the desired thumb color */
+    background: #fff;
     cursor: pointer;
   }
   
@@ -110,29 +154,50 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #583370; /* Change this to the desired thumb color */
+    background: #865FC7;
     cursor: pointer;
   }
   
-  .search-results {
-    width: 80%;
-    padding: 10px;
+  /* Distance Slider */
+  .distance-slider {
+    margin-top: 15px;
   }
   
+  .distance-slider label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Search Bar Styles */
   .search-bar-container {
     display: flex;
-    align-items: center;
     margin-bottom: 20px;
   }
   
   .search-bar {
-    width: 80%;
+    flex-grow: 1;
     padding: 10px;
+    border: 2px solid #9165B7;
+    border-radius: 5px;
+    font-size: 16px;
   }
   
   .go-button {
-    padding: 10px;
+    background-color: #9165B7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     margin-left: 10px;
     cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
   }
   
+  .go-button:hover {
+    background-color: #4B227C;
+  }
+  
+
+
+
+ 
