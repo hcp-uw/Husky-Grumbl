@@ -26,7 +26,7 @@ const HomePage = () => {
 
         <section className="find-dining">
           <img src={husky} alt="husky with utensils"></img>
-          <Link to="/explorepage">
+          <Link to="/explore-page">
             <button className="btn-find-dining">Find Dining</button>
           </Link>
         </section>
@@ -49,7 +49,7 @@ const HomePage = () => {
         </section>
 
         <footer>
-            <Link to="/explorepage">
+            <Link to="/explore-page">
                 <button className="btn-get-started">Get Started</button>
             </Link>
         </footer>
