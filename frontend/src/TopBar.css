@@ -1,41 +1,96 @@
-/* TopBar.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
+.brand-name {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Container for the top bar */
 .top-bar {
-  background-color: #CFB9DF;
-  color: #fff;
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background-color: #8b5fbf;
+  color: white;
+  border-radius: 0 0 20px 20px; 
 }
 
-/* Style for the Contact Us button */
-.contact-button {
-  background-color: none;
-  /* border: none; */
-  border: 2px solid #583370; /* Purple border */
-  color: #583370;
-  /* color: white; */
-  padding: 10px 20px;
-  text-align: center;
+/* Container for the logo and brand name */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image */
+.logo {
+  height: 80px; 
+  width: auto;
+}
+
+.brand-line-top {
+  font-size: 25px; 
+  font-weight: bold;
+}
+
+.brand-line-bottom {
+  font-size: 40px; 
+  font-weight: bold;
+  margin-top: -10px
+}
+
+.logo-link {
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-right: 20px; /* Add some margin to separate it from other content */
-  cursor: pointer;
+  color: inherit;
 }
 
-/* Hover effect for the Contact Us button */
-.contact-button:hover {
-  background-color: #C6ABD8;
+
+
+/* Brand name */
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+  font: 'Playfair Display'
 }
 
-.top-bar-title {
-  margin: 15px; /* Remove default margin */
-  font-size: 2rem; /* Adjust font size as needed */
-  text-decoration: none; /* Remove default underline */
-  color: #583370; /* Set text color */
-  /* Add any additional styles you want for the title */
+/* Container for the navigation buttons */
+.nav-buttons {
+  display: flex;
+  gap: 40px; /* Space between buttons */
+}
+
+/* Style for each navigation button */
+.nav-button {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Underline the active button */
+.nav-button.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Hover effect */
+.nav-button:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
 }

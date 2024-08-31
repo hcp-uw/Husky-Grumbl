@@ -10,36 +10,6 @@ import ExplorePage from './ExplorePage';
 import About from './About'; 
 
 function App() {
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setLongitude] = useState('');
-  const [keywords, setKeywords] = useState('');
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(4);
-  const [openNow, setOpenNow] = useState(true);
-  const [radius, setRadius] = useState(1000);
-  const [recommendations, setRecommendations] = useState([]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const data = {
-      latitude: parseFloat(latitude),
-      longitude: parseFloat(longitude),
-      keywords,
-      minprice: minPrice.toString(),
-      maxprice: maxPrice.toString(),
-      opennow: openNow,
-      radius: parseInt(radius),
-    };
-
-    try {
-      const response = await axios.post('http://localhost:5000/save-location', data);
-      setRecommendations(response.data);
-    } catch (error) {
-      console.error('Error sending location data to backend:', error);
-    }
-  };
-
   return (
     // <div className="App">
     //   <h1>Food Recommendations</h1>
