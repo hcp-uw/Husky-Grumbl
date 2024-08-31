@@ -53,6 +53,11 @@ body {
   padding: 5px 60px; /* Adds padding inside the button */
 }
 
+.btn-find-dining:hover {
+  background-color: #9165B7;
+}
+
+
 .steps img{
   margin-top: 100px;
   max-width: 1050px;
@@ -122,4 +127,8 @@ footer {
   border-radius: 25px;
   cursor: pointer;
   font-size: 25px;
+}
+
+.btn-get-started:hover {
+  background-color: #4B227C;
 }

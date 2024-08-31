@@ -1,78 +1,50 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: white;
-  min-height: 100vh;
+.contact-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start; 
-  padding-top: 50px; /* Add some padding to the top */
-  font-size: calc(10px + 2vmin);
-  color: black;
+  border: 2px solid #6A1B9A; /* Adjusted to match the purple border */
+  border-radius: 10px;
+  padding: 20px;
+  width: fit-content;
+  margin: auto;
+  background-color: white;
 }
 
-.contact-form {
-  background: white;
-  padding: 5px;
-  border-radius: 5px;
-  width: 700px; /* Adjusted width */
-  max-width: 90%; /* Ensures it doesn't exceed the viewport width on smaller screens */
-  color: black;
+.contact-image img {
+  border: 3px solid #6A1B9A; /* Purple border around the image */
+  border-radius: 50%; /* Make image circular */
+  width: 120px; /* Adjust size as necessary */
+  height: 120px;
+  object-fit: cover;
 }
 
-.form-group {
-  margin-bottom: 30px;
+.contact-info {
+  margin-left: 20px;
 }
 
-
-.name-group {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
+.contact-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4F1964; /* Purple text */
 }
 
-.name-group input {
-  flex: 1;
-  height: 30px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  color: black;
-  background-color: #D9D9D9;
-  font-family: Arial, sans-serif; 
-  font-size: 18px;
-
-}
-
-.form-group input,
-.form-group textarea {
-  width: 662px; 
-  height: 30px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  color: black;
-  background-color: #D9D9D9;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-}
-
-.form-group textarea {
-  height: 100px;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
+.divider {
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-top: 3px solid #6A1B9A; /* Purple divider line */
+  margin: 5px 0;
+  width: 100%;
 }
 
-button:hover {
-  background-color: #0056b3;
+.contact-info p {
+  margin: 5px 0;
+  color: #7B4D9D; /* Adjusted to a lighter purple */
+  font-size: 16px;
+}
+
+.contact-info a {
+  color: #7B4D9D; /* LinkedIn link color */
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
 }
