@@ -16,8 +16,9 @@ body {
 }
 
 .header .logo img {
-  max-height: 300px;
-  max-width: 400px;
+  max-height: 125px;
+  max-width: auto;
+  margin-top: -20px;
 }
 
 
@@ -52,6 +53,11 @@ body {
   margin-right: 295px;
   padding: 5px 60px; /* Adds padding inside the button */
 }
+
+.btn-find-dining:hover {
+  background-color: #9165B7;
+}
+
 
 .steps img{
   margin-top: 100px;
@@ -117,9 +123,11 @@ footer {
 .btn-get-started {
   background-color: #9165B7;
   color: #fff;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-stretch:ultra-expanded;
   border: none;
   padding: 15px 30px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 30px;
 }

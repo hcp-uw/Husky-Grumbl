@@ -5,6 +5,7 @@ import RestaurantCard from './RestaurantCard';
 const ExplorePage = () => {
   const [priceLevel, setPriceLevel] = useState(1);
   const [maxDistance, setMaxDistance] = useState(10);
+  const [rating, setRating] = useState(0);
 
   const handlePriceChange = (event) => {
     setPriceLevel(event.target.value);
@@ -16,6 +17,10 @@ const ExplorePage = () => {
 
   const getPriceSymbol = () => {
     return '$'.repeat(priceLevel);
+  };
+
+  const handleRatingChange = (ratingValue) => {
+    setRating(ratingValue);
   };
 
   return (
@@ -127,6 +132,19 @@ const ExplorePage = () => {
               value={maxDistance} 
               onChange={handleMaxDistanceChange} 
             />
+          </div>
+
+          <h2 className="section">Rating</h2>
+          <div className="rating-container">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <span
+                key={star}
+                className={`star ${rating >= star ? 'selected' : ''}`}
+                onClick={() => handleRatingChange(star)}
+              >
+                &#9733;
+              </span>
+            ))}
           </div>
         </div>
 
