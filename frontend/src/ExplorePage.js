@@ -133,19 +133,6 @@ const ExplorePage = () => {
               onChange={handleMaxDistanceChange} 
             />
           </div>
-
-          <h2 className="section">Rating</h2>
-          <div className="rating-container">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <span
-                key={star}
-                className={`star ${rating >= star ? 'selected' : ''}`}
-                onClick={() => handleRatingChange(star)}
-              >
-                &#9733;
-              </span>
-            ))}
-          </div>
         </div>
 
         <div className="search-results">
@@ -158,7 +145,7 @@ const ExplorePage = () => {
               restaurantName: 'Aladdins',
               cuisine: 'Medditerannean',
               totalRatings: 123,
-              distance: '2 miles',
+              distance: '2 ',
               price: '$',
               rating: '4.2',
               isOpen: true

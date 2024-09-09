@@ -1,50 +1,141 @@
-.contact-card {
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Contact Page Container */
+.contact-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Page Title */
+h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #4F1964;
+}
+
+/* Team Section */
+.team-section {
+  margin-bottom: 60px;
+}
+
+h2 {
+  font-size: 28px;
+  color: #4F1964;
+  margin-bottom: 20px;
+}
+
+/* Team Member Layout */
+.team-member {
   display: flex;
   align-items: center;
-  border: 2px solid #6A1B9A; /* Adjusted to match the purple border */
+  background-color: #fff;
+  border: 2px solid #6A1B9A;
   border-radius: 10px;
   padding: 20px;
-  width: fit-content;
-  margin: auto;
-  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.contact-image img {
-  border: 3px solid #6A1B9A; /* Purple border around the image */
-  border-radius: 50%; /* Make image circular */
-  width: 120px; /* Adjust size as necessary */
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.team-image img {
+  border: 3px solid #6A1B9A;
+  border-radius: 50%;
+  width: 120px;
   height: 120px;
   object-fit: cover;
+  margin-right: 20px;
 }
 
-.contact-info {
-  margin-left: 20px;
+.team-info {
+  text-align: left;
 }
 
-.contact-name {
-  font-size: 24px;
-  font-weight: bold;
-  color: #4F1964; /* Purple text */
+.team-name {
+  font-size: 22px;
+  color: #4F1964;
+  margin-bottom: 10px;
 }
 
-.divider {
-  border: none;
-  border-top: 3px solid #6A1B9A; /* Purple divider line */
+.team-info p {
   margin: 5px 0;
-  width: 100%;
+  color: #7B4D9D;
 }
 
-.contact-info p {
-  margin: 5px 0;
-  color: #7B4D9D; /* Adjusted to a lighter purple */
-  font-size: 16px;
-}
-
-.contact-info a {
-  color: #7B4D9D; /* LinkedIn link color */
+.team-info a {
+  color: #7B4D9D;
   text-decoration: none;
 }
 
-.contact-info a:hover {
+.team-info a:hover {
   text-decoration: underline;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #4F1964;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6A1B9A;
+}
+
+.submit-btn {
+  padding: 12px 20px;
+  border: none;
+  background-color: #6A1B9A;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #4F1964;
 }
