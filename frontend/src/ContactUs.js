@@ -2,6 +2,8 @@ import React from 'react';
 import './ContactUs.css';
 import shreya from './team-photos/shreya_pandey.png';
 import neha from './team-photos/neha_pinni.png';
+import raiden from './team-photos/raiden_santos.png';
+import shayna from './team-photos/shayna_suzuki.png';
 
 function ContactUs() {
   return (
@@ -37,25 +39,25 @@ function ContactUs() {
 
         <div className="team-member">
           <div className="team-image">
-            <img src={neha} alt="Neha Pinni" />
+            <img src={raiden} alt="Raiden Santos" />
           </div>
           <div className="team-info">
-            <h3 className="team-name">Neha Pinni</h3>
-            <p>Frontend Lead</p>
-            <p>Email: <a href="mailto:npinni@uw.edu">npinni@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/neha-pinni/" target="_blank" rel="noopener noreferrer">Neha Pinni</a></p>
+            <h3 className="team-name">Raiden Santos</h3>
+            <p>Frontend Developer</p>
+            <p>Email: <a href="mailto:raidens@uw.edu">raidens@uw.edu</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/raidensantos/" target="_blank" rel="noopener noreferrer">Raiden Santos</a></p>
           </div>
         </div>
 
         <div className="team-member">
           <div className="team-image">
-            <img src={neha} alt="Neha Pinni" />
+            <img src={shayna} alt="Shayna Suzuki" />
           </div>
           <div className="team-info">
-            <h3 className="team-name">Neha Pinni</h3>
-            <p>Frontend Lead</p>
-            <p>Email: <a href="mailto:npinni@uw.edu">npinni@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/neha-pinni/" target="_blank" rel="noopener noreferrer">Neha Pinni</a></p>
+            <h3 className="team-name">Shayna Suzuki</h3>
+            <p>Frontend Developer</p>
+            <p>Email: <a href="mailto:shay2022@uw.edu">shay2022@uw.edu</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shayna-suzuki/" target="_blank" rel="noopener noreferrer">Shayna Suzuki</a></p>
           </div>
         </div>
 
