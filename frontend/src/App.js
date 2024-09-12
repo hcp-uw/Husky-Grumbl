@@ -25,12 +25,14 @@ function App() {
     e.preventDefault();
     // API call logic goes here
     try {
-      const response = await axios.get('/api/food-recommendations', {
+      const response = await axios.get('/recommendations', {
         params: { latitude, longitude, keywords, minPrice, maxPrice, openNow, radius },
       });
+      console.log("Try statement")
       setRecommendations(response.data);
     } catch (error) {
       console.error('Error fetching recommendations:', error);
+      console.log("Error statement")
     }
   };
 
