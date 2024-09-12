@@ -59,11 +59,6 @@ const ExplorePage = () => {
     setMaxPrice(event.target.value);
   };
 
-  // Handle min price change
-  const handleMinPriceChange = (event) => {
-    setMinPrice(event.target.value);
-  };
-
   // Handle changes for dietary restrictions
   const handleDietaryChange = (event) => {
     const { name, checked } = event.target;
