@@ -5,8 +5,27 @@ import json
 from geopy.distance import geodesic
 from restaurant import Restaurant
 
-# my_api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4" # (Shreya's Key)
-my_api_key = "&key=AIzaSyBsfTYeutSAt0mTeJ-_tSWas2lhlymwIlE" # (Mayee's Key)
+my_api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4" # (Shreya's Key)
+# my_api_key = "&key=AIzaSyBsfTYeutSAt0mTeJ-_tSWas2lhlymwIlE" # (Mayee's Key)
+
+def get_user_coordinates(api_key, address):
+    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}'
+    response = requests.get(url)
+
+    if(response.status_code == 200): # 200 means no error code
+        data = response.json()
+        if(data['status'] == 'OK'):
+            # extracting the coordinates
+            location = data['results'][0]['geometry']['location']
+            latitude = location['lat']
+            longitude = location['lng']
+            return latitude, longitude
+        else:
+            print(f"Error: {data['status']}")
+            return None
+    else:
+        print(f"Request failed with status code {response.status_code}")
+        return None
 
 def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
     url = build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
