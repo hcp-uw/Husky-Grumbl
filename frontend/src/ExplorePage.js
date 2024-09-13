@@ -33,6 +33,8 @@ const ExplorePage = () => {
   const [minPrice, setMinPrice] = useState(0);      // minPrice by default set to $
   const [maxDistance, setMaxDistance] = useState(1); // distance slider in miles
   const [openNow, setOpenNow] = useState(true);      // Default to only open restaurants
+  const [showRecommendations, setShowRecommendations] = useState(false); // New state to control visibility
+
 
   // Combine cuisine preferences and dietary restrictions into a keywords string
   const getKeywords = () => {
@@ -108,6 +110,7 @@ const ExplorePage = () => {
         },
       });
       console.log("API response:", recommendations);
+      setShowRecommendations(true);
       //console.log("API response:", data);
       //setRecommendations(data); // Correctly set the recommendations state
     } catch (error) {
@@ -232,12 +235,9 @@ const ExplorePage = () => {
         </div>
 
         <div className="search-results">
-          <div className="search-bar-container">
-            <input type="text" placeholder="Search" className="search-bar" />
-            <button className="go-button">Go</button>
-          </div>
+     
           {/* Display recommendations */}
-          {recommendations.length > 0 && (
+          {showRecommendations && recommendations.length > 0 && (
             <div>
               <h2>Recommended Restaurants</h2>
               {recommendations.map((recommendation, index) => (
