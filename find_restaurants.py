@@ -3,23 +3,58 @@ import geocoder
 import requests
 import json
 import geopy.distance
+from geopy import distance
 
 my_api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4"
-g = geocoder.ip('me')
-currLocCoords = (g.latlng[0], g.latlng[1])
-currLocCoordsURL = str(g.latlng[0]) + "%2C" + str(g.latlng[1])
+# my_api_key = "&key=AIzaSyBsfTYeutSAt0mTeJ-_tSWas2lhlymwIlE" # (Mayee's Key)
+def get_user_coordinates(api_key, address):
+    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}'
+    response = requests.get(url)
+
+    if(response.status_code == 200): # 200 means no error code
+        data = response.json()
+        if(data['status'] == 'OK'):
+            # extracting the coordinates
+            location = data['results'][0]['geometry']['location']
+            latitude = location['lat']
+            longitude = location['lng']
+            return latitude, longitude
+        else:
+            print(f"Error: {data['status']}")
+            return None
+    else:
+        print(f"Request failed with status code {response.status_code}")
+        return None
+
+
+
+address = input("Enter Address: ")
+currLocCoords= get_user_coordinates(my_api_key[5:], address)
+print('User coordinates: ' + str(currLocCoords))
+
+currLocCoordsURL = ""
+if(currLocCoords):
+    currLocCoordsURL = str(currLocCoords[0]) + "%2C" + str(currLocCoords[1])
+else:
+    print("Unable to fetch your location. Set default location to the University of Washington")
+    currLocCoords = (47.655860161693504, -122.30954131041663)
+    currLocCoordsURL = str(currLocCoords[0]) + "%2C" + str(currLocCoords[1])
 url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + currLocCoordsURL
 
-keyword = input("What type of cuisine? (Hit enter for all types)").lower().replace(" ", "%20")
+
+
+
+
+keyword = input("What type of cuisine? (Hit enter for all types) ").lower().replace(" ", "%20")
 keyword = "&keyword=" + keyword
 url = url + keyword
 
-minprice = input("Minimum price? Enter $ for inexpensive (under $10), $$ for moderately expensive ($10 - $25), $$$ for expensive ($25 - $45), $$$$ for very expensive ($50 +).")
+minprice = input("Minimum price? Enter $ for inexpensive (under $10), $$ for moderately expensive ($10 - $25), $$$ for expensive ($25 - $45), $$$$ for very expensive ($50 +). ")
 if minprice != "":
     maxprice = "&minprice=" + minprice
     url = url + maxprice
 
-maxprice = input("Maximum price? Enter $ for inexpensive (under $10), $$ for moderately expensive ($10 - $25), $$$ for expensive ($25 - $45), $$$$ for very expensive ($50 +).")
+maxprice = input("Maximum price? Enter $ for inexpensive (under $10), $$ for moderately expensive ($10 - $25), $$$ for expensive ($25 - $45), $$$$ for very expensive ($50 +). ")
 if maxprice != "":
     maxprice = "&maxprice=" + maxprice
     url = url + maxprice
@@ -113,6 +148,14 @@ for i in range(numPlaces):
         placeCoords = currPlace["geometry"]["location"]
         currPlaceCoords = (placeCoords["lat"], placeCoords["lng"])
         distance = geopy.distance.geodesic(currLocCoords, currPlaceCoords).miles
+
+
+        # print(currLocCoords, currPlaceCoords)
+        # distance2 = distance.distance(currPlaceCoords, currLocCoords).miles
+
+        # print('distance: ' + distance)
+        # print('distance2: ' + distance2)
+        
         rest.distance = distance
     except KeyError as e:
         pass
@@ -128,6 +171,9 @@ for i in range(numPlaces):
 
 for r in restInstVarList:
     print(r["name"] + ": ")
+    print(currLocCoords)
+    print(placeCoords)
+    print()
     for i in range(1, 8):
         a = restAttributesList[i]
         print("\t" + a + ": " + str(r[a]))
@@ -138,4 +184,5 @@ print(randomChoice["name"] + ": ")
 for i in range(1, 8):
     a = restAttributesList[i]
     print("\t" + a + ": " + str(randomChoice[a]))
+    
 
