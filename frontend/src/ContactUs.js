@@ -98,32 +98,7 @@ function ContactUs() {
             <p>Email: <a href="mailto:varunshinde217@uw.edu">varunshinde217@uw.edu</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/shindevarun/" target="_blank" rel="noopener noreferrer">Varun Shinde</a></p>
           </div>
-        </div>
-
-        {/* Add more team members in the same structure if needed */}
-        
-      </div>
-
-      <div className="contact-form-section">
-        <h2>Get in Touch</h2>
-        <form className="contact-form">
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your email" required />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" placeholder="Your message" rows="4" required></textarea>
-          </div>
-          
-          <button type="submit" className="submit-btn">Submit</button>
-        </form>
+        </div>     
       </div>
     </div>
   );
