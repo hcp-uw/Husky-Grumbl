@@ -7,8 +7,8 @@ const ExplorePage = () => {
   const latitude = "47.6062"; // hardcoded value
   const longitude = "-122.3321"; // hardcoded value
 
-   // State for cuisine preferences and dietary restrictions, which will combine into a single keywords string
-   const [cuisinePreferences, setCuisinePreferences] = useState({
+  // State for cuisine preferences and dietary restrictions, which will combine into a single keywords string
+  const [cuisinePreferences, setCuisinePreferences] = useState({
     thai: false,
     japanese: false,
     mexican: false,
@@ -31,7 +31,7 @@ const ExplorePage = () => {
 
   const [maxPrice, setMaxPrice] = useState(4);  // maxPrice by default set to $$$$
   const [minPrice, setMinPrice] = useState(0);      // minPrice by default set to $
-  const [maxDistance, setMaxDistance] = useState(1); // distance slider in miles
+  const [radius, setRadius] = useState(1); // distance slider in miles
   const [openNow, setOpenNow] = useState(true);      // Default to only open restaurants
   const [showRecommendations, setShowRecommendations] = useState(false); // New state to control visibility
 
@@ -68,8 +68,8 @@ const ExplorePage = () => {
   };
 
   // Handle distance slider change
-  const handleMaxDistanceChange = (event) => {
-    setMaxDistance(event.target.value);
+  const handleRadiusChange = (event) => {
+    setRadius(event.target.value);
   };
 
   // Handle open now checkbox change
@@ -80,7 +80,7 @@ const ExplorePage = () => {
   const getPriceSymbol = () => {
     return '$'.repeat(maxPrice);
   };
-  
+
   // State for recommendations
   const [recommendations, setRecommendations] = useState([]);
 
@@ -95,21 +95,13 @@ const ExplorePage = () => {
     console.log(minPrice)
     console.log(maxPrice)
     console.log(openNow)
-    console.log(maxDistance)
+    console.log(radius)
 
     try {
-      const { data } = await axios.get("/recommendations", {
-        params: {
-          latitude,
-          longitude,
-          keyword: keywords,
-          minprice: minPrice,
-          maxprice: maxPrice,
-          opennow: openNow,
-          radius: maxDistance,
-        },
+      const recommendations = await axios.get('http://localhost:8080/recommendations', {
+        params: { latitude, longitude, keywords, minPrice, maxPrice, openNow, radius },
       });
-      console.log("API response:", recommendations);
+      console.log("API response:", recommendations.data);
       setShowRecommendations(true);
       //console.log("API response:", data);
       //setRecommendations(data); // Correctly set the recommendations state
@@ -167,7 +159,7 @@ const ExplorePage = () => {
                 <label className="label-text" htmlFor="chinese">Chinese</label>
               </li>
               <li>
-                <input type="checkbox" id="other" name="other" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.other} onChange={handleCuisineChange}/>
+                <input type="checkbox" id="other" name="other" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.other} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="other">Other</label>
               </li>
             </ul>
@@ -193,19 +185,19 @@ const ExplorePage = () => {
                 <label className="label-text" htmlFor="vegetarian">Vegetarian</label>
               </li>
               <li>
-                <input type="checkbox" id="vegan" name="vegan" className="checkbox" style={{ display: "none" }}  checked={dietaryRestrictions.vegan} onChange={handleDietaryChange} />
+                <input type="checkbox" id="vegan" name="vegan" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.vegan} onChange={handleDietaryChange} />
                 <label className="label-text" htmlFor="vegan">Vegan</label>
               </li>
               <li>
-                <input type="checkbox" id="halal" name="halal" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.halal} onChange={handleDietaryChange}  />
+                <input type="checkbox" id="halal" name="halal" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.halal} onChange={handleDietaryChange} />
                 <label className="label-text" htmlFor="halal">Halal</label>
               </li>
               <li>
-                <input type="checkbox" id="kosher" name="kosher" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.kosher} onChange={handleDietaryChange}  />
+                <input type="checkbox" id="kosher" name="kosher" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.kosher} onChange={handleDietaryChange} />
                 <label className="label-text" htmlFor="kosher">Kosher</label>
               </li>
               <li>
-                <input type="checkbox" id="glutenFree" name="glutenFree" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.glutenFree} onChange={handleDietaryChange}  />
+                <input type="checkbox" id="glutenFree" name="glutenFree" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.glutenFree} onChange={handleDietaryChange} />
                 <label className="label-text" htmlFor="glutenFree">Gluten-Free</label>
               </li>
             </ul>
@@ -220,13 +212,13 @@ const ExplorePage = () => {
 
             <h2 className="section">Distance</h2>
             <div className="distance-slider">
-              <label className="label-text">Max: {maxDistance} miles</label>
+              <label className="label-text">Max: {radius} miles</label>
               <input
                 type="range"
                 min="1"
                 max="50"
-                value={maxDistance}
-                onChange={handleMaxDistanceChange}
+                value={radius}
+                onChange={handleRadiusChange}
               />
             </div>
 
@@ -235,7 +227,7 @@ const ExplorePage = () => {
         </div>
 
         <div className="search-results">
-     
+
           {/* Display recommendations */}
           {showRecommendations && recommendations.length > 0 && (
             <div>
