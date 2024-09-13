@@ -89,13 +89,13 @@ const ExplorePage = () => {
     e.preventDefault();
 
     const keywords = getKeywords(); // Generate the combined keywords string
-    console.log(latitude)
-    console.log(longitude)
-    console.log(keywords)
-    console.log(minPrice)
-    console.log(maxPrice)
-    console.log(openNow)
-    console.log(maxDistance)
+    console.log( "Latitude", latitude)
+    console.log("Longitude", longitude)
+    console.log("Keywords", keywords)
+    console.log("MinPrice", minPrice)
+    console.log("MaxPrice", maxPrice)
+    console.log("Open now", openNow)
+    console.log("Max Distance", maxDistance)
 
     try {
       const { data } = await axios.get("/recommendations", {
