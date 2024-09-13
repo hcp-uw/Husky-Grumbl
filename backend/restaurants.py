@@ -55,10 +55,10 @@ def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
     url += "&keyword=" + keyword 
 
     if minprice != "":
-        url += "&minprice=" + minprice
+        url += "&minprice=" + str(minprice)
 
     if maxprice != "":
-        url += "&maxprice=" + maxprice
+        url += "&maxprice=" + str(maxprice)
 
     if opennow == "y":
         url += "&opennow=true"
@@ -70,7 +70,7 @@ def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
     else:
         url += "&radius=3200"
 
-    url += "&type=restaurant" + api_key
+    url += "&type=restaurant" + my_api_key
 
     return url
 
