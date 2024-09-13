@@ -102,11 +102,14 @@ const ExplorePage = () => {
         params: { latitude, longitude, keywords, minPrice, maxPrice, openNow, radius },
       });
       console.log("API response:", recommendations.data);
-      setShowRecommendations(true);
+      setRecommendations(recommendations.data); // Update recommendations state
+      setShowRecommendations(true); // Show recommendations only after search
       //console.log("API response:", data);
       //setRecommendations(data); // Correctly set the recommendations state
     } catch (error) {
       console.error("Error fetching recommendations:", error);
+      setRecommendations([]); // Clear recommendations on error
+      setShowRecommendations(false); // Hide recommendations on error
     }
   };
 
@@ -227,26 +230,27 @@ const ExplorePage = () => {
         </div>
 
         <div className="search-results">
-
           {/* Display recommendations */}
-          {showRecommendations && recommendations.length > 0 && (
+          {showRecommendations && recommendations.length > 0 ? (
             <div>
-              <h2>Recommended Restaurants</h2>
               {recommendations.map((recommendation, index) => (
-                <RestaurantCard
-                  key={index}
-                  restaurantName={recommendation.name}
-                  cuisine={recommendation.cuisine || 'Unknown'}
-                  totalRatings={recommendation.total_user_ratings}
-                  distance={recommendation.distance}
-                  price={recommendation.price_level}
-                  rating={recommendation.rating}
-                  isOpen={recommendation.open_now ? 'Yes' : 'No'}
-                />
+                <div key={index} className="restaurant-card-wrapper">
+                  <RestaurantCard
+                    restaurantName={recommendation.name}
+                    totalRatings={recommendation.total_user_ratings}
+                    distance={recommendation.distance.toFixed(2)}
+                    price={recommendation.price_level}
+                    rating={recommendation.rating}
+                    isOpen={recommendation.open_now ? 'Yes' : 'No'}
+                  />
+                </div>
               ))}
             </div>
+          ) : (
+            showRecommendations && <p></p>
           )}
         </div>
+
       </div>
     </div >
   );

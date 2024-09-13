@@ -1,6 +1,22 @@
 import React from 'react';
 import './RestaurantCard.css';
 
+const priceToDollarSigns = (priceLevel) => {
+  switch (priceLevel) {
+    case 0:
+      return '$';
+    case 1:
+      return '$$';
+    case 2:
+      return '$$$';
+    case 3:
+      return '$$$$';
+    default:
+      return 'Unknown'; // Fallback case
+  }
+};
+
+
 const RestaurantCard = ({ restaurantName, cuisine, distance, price, rating, isOpen, totalRatings }) => {
   return (
     <div className="restaurant-card">
@@ -14,8 +30,7 @@ const RestaurantCard = ({ restaurantName, cuisine, distance, price, rating, isOp
       <div className="restaurant-details">
         <div>Rating: {rating}</div>
         <div>Total Ratings: {totalRatings}</div>
-        <div>Price: {price}</div>
-        <div>Cuisine: {cuisine}</div>
+        <div>Price: {priceToDollarSigns(price)}</div>
         <div>Distance: {distance} miles</div>
       </div>
     </div>
