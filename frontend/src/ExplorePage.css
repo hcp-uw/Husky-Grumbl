@@ -198,9 +198,32 @@
   }
 
 
+  /* Style for the submit button */
+.submit-button {
+  background-color: #4B227C; 
+  color: white; 
+  padding: 12px 24px; 
+  font-size: 18px; 
+  font-weight: bold; 
+  border: none; 
+  border-radius: 25px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: all 0.3s ease; 
+  width: 90%; 
+  margin-top: 20px; 
+}
 
-  
+/* Hover effect */
+.submit-button:hover {
+  background-color: #39195f; 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+
+/* Active state (when clicked) */
+.submit-button:active {
+  background-color: #4B227C; 
+  transform: scale(0.98); 
+}
 
 
-
- 
