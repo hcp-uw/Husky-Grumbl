@@ -230,7 +230,7 @@ const ExplorePage = () => {
               />
             </div>
 
-            <button type="submit" className="submit-button">Go</button>
+            <button type="submit" className="submit-button">Search</button>
           </form>
         </div>
 

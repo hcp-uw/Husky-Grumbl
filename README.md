@@ -1,4 +1,4 @@
-Elizabeth Wang, Shreya Pandey, Kevin Kim, Varun Shinde, Raiden Santos, Neha Pinni
+Shreya Pandey, Kevin Kim, Varun Shinde, Mayee Sun, Raiden Santos, Neha Pinni, Shayna Suzuki
 
 
 
