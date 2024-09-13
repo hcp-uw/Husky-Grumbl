@@ -18,6 +18,10 @@
     padding: 20px;
     background-color: #9165B7;
     border-radius: 10px;
+    /* calc(100vh - 40px); */
+    max-height: 125vh;
+    overflow-y: auto;
+    box-sizing: border-box;
   }
   
   .search-results {
@@ -46,6 +50,7 @@
   }
   
   /* Sidebar Styles */
+
   .sidebar h3 {
     margin-top: 20px;
   }

@@ -3,7 +3,7 @@
     border-radius: 8px;
     padding: 20px;
     background-color: #f9f9f9;
-    width: 300px;
+    width: 1000px;
     font-family: 'Helvetica';
   }
   
@@ -49,4 +49,9 @@
   .restaurant-details .rating {
     font-weight: bold;
   }
+  
+  .restaurant-card-wrapper {
+    margin: 10px 0; /* Adjust as needed */
+  }
+  
   
