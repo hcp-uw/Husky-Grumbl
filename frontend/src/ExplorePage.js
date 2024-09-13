@@ -87,6 +87,13 @@ const ExplorePage = () => {
     e.preventDefault();
 
     const keywords = getKeywords(); // Generate the combined keywords string
+    console.log(latitude)
+    console.log(longitude)
+    console.log(keywords)
+    console.log(minPrice)
+    console.log(maxPrice)
+    console.log(openNow)
+    console.log(maxDistance)
 
     try {
       const { data } = await axios.get("/recommendations", {
@@ -101,6 +108,8 @@ const ExplorePage = () => {
         },
       });
       console.log("API response:", recommendations);
+      //console.log("API response:", data);
+      //setRecommendations(data); // Correctly set the recommendations state
     } catch (error) {
       console.error("Error fetching recommendations:", error);
     }
@@ -119,43 +128,43 @@ const ExplorePage = () => {
             <h2 className="section">Cuisine Preferences</h2>
             <ul>
               <li>
-                <input type="checkbox" id="thai" name="thai" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="thai" name="thai" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.thai} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="thai">Thai</label>
               </li>
               <li>
-                <input type="checkbox" id="japanese" name="japanese" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="japanese" name="japanese" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.japanese} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="japanese">Japanese</label>
               </li>
               <li>
-                <input type="checkbox" id="mexican" name="mexican" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="mexican" name="mexican" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.mexican} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="mexican">Mexican</label>
               </li>
               <li>
-                <input type="checkbox" id="indian" name="indian" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="indian" name="indian" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.indian} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="indian">Indian</label>
               </li>
               <li>
-                <input type="checkbox" id="korean" name="korean" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="korean" name="korean" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.korean} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="korean">Korean</label>
               </li>
               <li>
-                <input type="checkbox" id="italian" name="italian" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="italian" name="italian" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.italian} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="italian">Italian</label>
               </li>
               <li>
-                <input type="checkbox" id="vietnamese" name="vietnamese" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="vietnamese" name="vietnamese" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.vietnamese} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="vietnamese">Vietnamese</label>
               </li>
               <li>
-                <input type="checkbox" id="mediterranean" name="mediterranean" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="mediterranean" name="mediterranean" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.mediterranean} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="mediterranean">Mediterranean</label>
               </li>
               <li>
-                <input type="checkbox" id="chinese" name="chinese" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="chinese" name="chinese" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.chinese} onChange={handleCuisineChange} />
                 <label className="label-text" htmlFor="chinese">Chinese</label>
               </li>
               <li>
-                <input type="checkbox" id="other" name="other" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="other" name="other" className="checkbox" style={{ display: "none" }} checked={cuisinePreferences.other} onChange={handleCuisineChange}/>
                 <label className="label-text" htmlFor="other">Other</label>
               </li>
             </ul>
@@ -177,23 +186,23 @@ const ExplorePage = () => {
             <h2 className="section">Dietary Restrictions</h2>
             <ul>
               <li>
-                <input type="checkbox" id="vegetarian" name="vegetarian" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="vegetarian" name="vegetarian" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.vegetarian} onChange={handleDietaryChange} />
                 <label className="label-text" htmlFor="vegetarian">Vegetarian</label>
               </li>
               <li>
-                <input type="checkbox" id="vegan" name="vegan" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="vegan" name="vegan" className="checkbox" style={{ display: "none" }}  checked={dietaryRestrictions.vegan} onChange={handleDietaryChange} />
                 <label className="label-text" htmlFor="vegan">Vegan</label>
               </li>
               <li>
-                <input type="checkbox" id="halal" name="halal" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="halal" name="halal" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.halal} onChange={handleDietaryChange}  />
                 <label className="label-text" htmlFor="halal">Halal</label>
               </li>
               <li>
-                <input type="checkbox" id="kosher" name="kosher" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="kosher" name="kosher" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.kosher} onChange={handleDietaryChange}  />
                 <label className="label-text" htmlFor="kosher">Kosher</label>
               </li>
               <li>
-                <input type="checkbox" id="glutenFree" name="glutenFree" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="glutenFree" name="glutenFree" className="checkbox" style={{ display: "none" }} checked={dietaryRestrictions.glutenFree} onChange={handleDietaryChange}  />
                 <label className="label-text" htmlFor="glutenFree">Gluten-Free</label>
               </li>
             </ul>
@@ -201,7 +210,7 @@ const ExplorePage = () => {
             <h2 className="section">Availability Status</h2>
             <ul>
               <li>
-                <input type="checkbox" id="openNow" name="openNow" className="checkbox" style={{ display: "none" }} />
+                <input type="checkbox" id="openNow" name="openNow" className="checkbox" style={{ display: "none" }} checked={openNow} onChange={handleOpenNowChange} />
                 <label className="label-text" htmlFor="openNow">Open Now</label>
               </li>
             </ul>
