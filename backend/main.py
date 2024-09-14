@@ -27,8 +27,6 @@ app.add_middleware(
     allow_headers=["*"],                        # Allow all request headers
 )
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
 
 # # Endpoint to get recommendations
 @app.get("/recommendations")
@@ -44,3 +42,6 @@ async def get_recommendations(
     print("Hello World")
     recommendations = get_food_recommendations(latitude, longitude, keywords, minPrice, maxPrice, openNow, radius)
     return recommendations
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8080)
