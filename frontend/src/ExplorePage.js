@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ExplorePage.css';
 import RestaurantCard from './RestaurantCard';
 import axios from 'axios'; // Make sure to import axios
 
 const ExplorePage = () => {
-  const latitude = "47.6062"; // hardcoded value
-  const longitude = "-122.3321"; // hardcoded value
-
+  // const latitude = "47.6062"; // hardcoded value
+  // const longitude = "-122.3321"; // hardcoded value
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  
   // State for cuisine preferences and dietary restrictions, which will combine into a single keywords string
   const [cuisinePreferences, setCuisinePreferences] = useState({
     thai: false,
@@ -35,6 +37,22 @@ const ExplorePage = () => {
   const [openNow, setOpenNow] = useState(true);      // Default to only open restaurants
   const [showRecommendations, setShowRecommendations] = useState(false); // New state to control visibility
 
+   // Fetch user location using Geolocation API
+ useEffect(() => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      },
+      (error) => {
+        console.error("Error getting geolocation:", error);
+      }
+    );
+  } else {
+    console.error("Geolocation is not supported by this browser.");
+  }
+}, []); // Runs only once when the component mounts
 
   // Combine cuisine preferences and dietary restrictions into a keywords string
   const getKeywords = () => {
