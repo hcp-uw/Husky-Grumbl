@@ -102,7 +102,7 @@ def build_recs(numPlaces, results, currLocCoords, desired_price_level):
             pass
 
         try:
-            priceLevel = currPlace["price_level", None]
+            priceLevel = currPlace.get("price_level", None)
             rest.price_level = priceLevel
         except KeyError:
             pass
