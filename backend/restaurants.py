@@ -27,7 +27,7 @@ def get_user_coordinates(api_key, address):
         print(f"Request failed with status code {response.status_code}")
         return None
 
-def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
+def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius, desired_price_level):
     url = build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
     response = requests.request("GET", url)
     response = json.loads(response.text)
@@ -41,8 +41,10 @@ def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, o
 
     numPlaces = len(results)
     currLocCoords = (latitude, longitude)
-    restInstVarList = build_recs(numPlaces, results, currLocCoords)
-
+    
+    # added a desire_price_level feature
+    restInstVarList = build_recs(numPlaces, results, currLocCoords, desired_price_level)
+    
     return restInstVarList
 
 def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
@@ -74,7 +76,7 @@ def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
 
     return url
 
-def build_recs(numPlaces, results, currLocCoords):
+def build_recs(numPlaces, results, currLocCoords, desired_price_level):
     restInstVarList = []
 
     for i in range(numPlaces):
@@ -100,38 +102,40 @@ def build_recs(numPlaces, results, currLocCoords):
             pass
 
         try:
-            priceLevel = currPlace["price_level"]
+            priceLevel = currPlace["price_level", None]
             rest.price_level = priceLevel
         except KeyError:
             pass
 
-        try:
-            rating = currPlace["rating"]
-            rest.rating = rating
-        except KeyError:
-            pass
+        # conditional to check if price is what we wanted
+        if priceLevel is not None and priceLevel == desired_price_level:
+            try:
+                rating = currPlace["rating"]
+                rest.rating = rating
+            except KeyError:
+                pass
 
-        try:
-            totalUserRatings = currPlace["user_ratings_total"]
-            rest.total_user_ratings = totalUserRatings
-        except KeyError:
-            pass
+            try:
+                totalUserRatings = currPlace["user_ratings_total"]
+                rest.total_user_ratings = totalUserRatings
+            except KeyError:
+                pass
 
-        try:
-            placeCoords = currPlace["geometry"]["location"]
-            currPlaceCoords = (placeCoords["lat"], placeCoords["lng"])
-            distance = geodesic(currLocCoords, currPlaceCoords).miles
-            rest.distance = distance
-        except KeyError:
-            pass
+            try:
+                placeCoords = currPlace["geometry"]["location"]
+                currPlaceCoords = (placeCoords["lat"], placeCoords["lng"])
+                distance = geodesic(currLocCoords, currPlaceCoords).miles
+                rest.distance = distance
+            except KeyError:
+                pass
 
-        try:
-            address = currPlace["vicinity"]
-            rest.address = address
-        except KeyError:
-            pass
-
-        restInstVars = vars(rest)
-        restInstVarList.append(restInstVars)
+            try:
+                address = currPlace["vicinity"]
+                rest.address = address
+            except KeyError:
+                pass
+        
+            restInstVars = vars(rest)
+            restInstVarList.append(restInstVars)
 
     return restInstVarList
