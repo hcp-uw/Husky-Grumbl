@@ -42,7 +42,7 @@ def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, o
     numPlaces = len(results)
     currLocCoords = (latitude, longitude)
     
-    # added a desire_price_level feature
+    # added a desired_price_level feature
     restInstVarList = build_recs(numPlaces, results, currLocCoords, desired_price_level)
     
     return restInstVarList
