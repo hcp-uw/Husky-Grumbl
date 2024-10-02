@@ -1,5 +1,6 @@
 import React from 'react';
 import './ContactUs.css';
+import TopBar from './TopBar';
 import shreya from './team-photos/shreya_pandey.png';
 import neha from './team-photos/neha_pinni.png';
 import raiden from './team-photos/raiden_santos.png';
@@ -10,6 +11,7 @@ import varun from './team-photos/varun_shinde.png';
 
 function ContactUs() {
   return (
+    <div> <TopBar/>
     <div className="contact-page">
       <h1>Contact Us</h1>
       
@@ -24,7 +26,7 @@ function ContactUs() {
             <h3 className="team-name">Shreya Pandey</h3>
             <p>Project Manager, Backend Lead</p>
             <p>Email: <a href="mailto:shreya25@uw.edu">shreya25@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/shreyapandey2027/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Shreya Pandey</u></a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shreyapandey2027/" target="_blank" rel="noopener noreferrer"> <span className="hyperlink" >Shreya Pandey</span></a></p>
           </div>
         </div>
 
@@ -36,7 +38,7 @@ function ContactUs() {
             <h3 className="team-name">Neha Pinni</h3>
             <p>Frontend Lead</p>
             <p>Email: <a href="mailto:npinni@uw.edu">npinni@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/neha-pinni/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Neha Pinni</u></a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/neha-pinni/" target="_blank" rel="noopener noreferrer"><span className="hyperlink" >Neha Pinni</span></a></p>
           </div>
         </div>
 
@@ -48,7 +50,7 @@ function ContactUs() {
             <h3 className="team-name">Raiden Santos</h3>
             <p>Frontend Developer</p>
             <p>Email: <a href="mailto:raidens@uw.edu">raidens@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/raidensantos/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Raiden Santos</u></a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/raidensantos/" target="_blank" rel="noopener noreferrer"><span className="hyperlink" >Raiden Santos</span></a></p>
           </div>
         </div>
 
@@ -60,7 +62,7 @@ function ContactUs() {
             <h3 className="team-name">Shayna Suzuki</h3>
             <p>Frontend Developer</p>
             <p>Email: <a href="mailto:shay2022@uw.edu">shay2022@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/shayna-suzuki/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Shayna Suzuki</u></a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shayna-suzuki/" target="_blank" rel="noopener noreferrer"><span className="hyperlink" >Shayna Suzuki</span></a></p>
           </div>
         </div>
 
@@ -72,7 +74,7 @@ function ContactUs() {
             <h3 className="team-name">Kevin Kim</h3>
             <p>Backend Developer</p>
             <p>Email: <a href="mailto:kevi0201@uw.edu">kevi0201@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/kevkim27/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Kevin Kim</u></a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/kevkim27/" target="_blank" rel="noopener noreferrer"><span className="hyperlink" >Kevin Kim</span></a></p>
           </div>
         </div>
 
@@ -84,7 +86,7 @@ function ContactUs() {
             <h3 className="team-name">Mayee Sun</h3>
             <p>Backend Developer</p>
             <p>Email: <a href="mailto:mayeesun@uw.edu">mayeesun@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/mayee-sun-b15535277/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Mayee Sun</u></a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/mayee-sun-b15535277/" target="_blank" rel="noopener noreferrer"><span className="hyperlink" >Mayee Sun</span></a></p>
           </div>
         </div>
 
@@ -96,10 +98,11 @@ function ContactUs() {
             <h3 className="team-name">Varun Shinde</h3>
             <p>Backend Developer</p>
             <p>Email: <a href="mailto:varunshinde217@uw.edu">varunshinde217@uw.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/shindevarun/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Varun Shinde</u></a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shindevarun/" target="_blank" rel="noopener noreferrer"><span className="hyperlink" >Varun Shinde</span></a></p>
           </div>
         </div>     
       </div>
+    </div>
     </div>
   );
 }
