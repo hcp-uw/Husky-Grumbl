@@ -1,5 +1,24 @@
 Shreya Pandey, Kevin Kim, Varun Shinde, Mayee Sun, Raiden Santos, Neha Pinni, Shayna Suzuki
 
+# Husky Grumbl
+Husky Grumbl is a restaurant searching web application for UW students. It filters nearby restaurants based on each user’s preferences. 
+
+# Key Features
+Users can indicate their restaurant preferences based on cuisine, price range, open status, and proximity to current location. Users also have the option to input an address to indicate where they want the restaurants to be located.  
+
+# Demo 
+# Technology Stack
+# How to Install + Run the Project
+# How to Use the Website
+# Contributers 
+- Shreya Pandey: Project Manager/Backend Lead Developer
+- Neha Pinni: Frontend Lead Developer  
+- Raiden Santos: Frontend Developer 
+- Shayna Suzuki: Frontend Developer 
+- Kevin Kim: Backend Developer 
+- Mayee Sun: Backend Developer
+- Varun Shinde: Backend Developer 
+-------------------------
 
 
 # FastAPI Starter
