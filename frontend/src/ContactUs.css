@@ -83,3 +83,8 @@ h2 {
 .team-info a:hover {
   text-decoration: underline;
 }
+
+.hyperlink {
+  text-decoration: underline;
+  color: #0000FF
+}

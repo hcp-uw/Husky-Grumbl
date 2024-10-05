@@ -10,6 +10,8 @@ Users can indicate their restaurant preferences based on cuisine, price range, o
 # Technology Stack
 # How to Install + Run the Project
 # How to Use the Website
+When users open the website, they should see the filter options on the left bar. There are check boxes for cuisine preferences, a slider for price level, check boxes for dietary restrictions, a checkbox for open status, and a slider for dietary restrictions. Once users set their preferences, they can press search and see the list of restaurants show up on the right side.
+
 # Contributers 
 - Shreya Pandey: Project Manager/Backend Lead Developer
 - Neha Pinni: Frontend Lead Developer  
