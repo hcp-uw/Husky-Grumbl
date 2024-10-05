@@ -108,7 +108,7 @@ def build_recs(numPlaces, results, currLocCoords, desired_price_level):
             pass
 
         # conditional to check if price is what we wanted
-        if priceLevel is not None and priceLevel == desired_price_level:
+        if priceLevel is not None and (desired_price_level is None or priceLevel == desired_price_level):
             try:
                 rating = currPlace["rating"]
                 rest.rating = rating

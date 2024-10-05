@@ -10,7 +10,7 @@ Users can indicate their restaurant preferences based on cuisine, price range, o
 # Technology Stack
 # How to Install + Run the Project
 # How to Use the Website
-When users open the website, they should see the filter options on the left bar. There are check boxes for cuisine preferences, a slider for price level, check boxes for dietary restrictions, a checkbox for open status, and a slider for dietary restrictions. Once users set their preferences, they can press search and see the list of restaurants show up on the right side.
+When users first open the website, they will be landing in the Husky-Grumbl homepage. With our website mascot greeting the user, the user can scroll down to the bottom of the page and click on the "get started" button to start navigating the webpage. Next, they should see the filter options on the left bar. There are check boxes for cuisine preferences, a slider for price level, check boxes for dietary restrictions, a checkbox for open status, and a slider for distance. Once users set their preferences, they can press search and see the list of restaurants show up on the right side. Once restaurant recommendations show up, the names of different restaurants will all show up as separate result boxes, along with the restaurant's overall ratings, number of customer ratings, their price range ($ to $$$$), and their distance from the user's current location. From these results, users can freely choose which restaurants they wish to go to and gain general data about the restaurant. 
 
 # Contributers 
 - Shreya Pandey: Project Manager/Backend Lead Developer
