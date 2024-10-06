@@ -28,7 +28,10 @@ def get_user_coordinates(api_key, address):
         return None
 
 def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
+    # Build the Google Places API URL with the price level range
     url = build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
+    
+    # Send a request to Google Places API
     response = requests.request("GET", url)
     response = json.loads(response.text)
     status = response['status']
@@ -41,24 +44,25 @@ def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, o
 
     numPlaces = len(results)
     currLocCoords = (latitude, longitude)
-    restInstVarList = build_recs(numPlaces, results, currLocCoords)
+    
+    # Build recommendations and apply additional filtering
+    restInstVarList = build_recs(numPlaces, results, currLocCoords, minprice, maxprice)
 
     return restInstVarList
 
+
+
 def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
-    # g = geocoder.ip('me')
-    # currLocCoords = (g.latlng[0], g.latlng[1])
-    # currLocCoordsURL = str(g.latlng[0]) + "%2C" + str(g.latlng[1])
     currLocCoordsURL = str(latitude) + "%2C" + str(longitude)
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + currLocCoordsURL
 
     url += "&keyword=" + keyword 
 
     if minprice != "":
-        url += "&minprice=" + str(minprice)
+        url += "&minprice=" + str(minprice)  # Pass the minimum price
 
     if maxprice != "":
-        url += "&maxprice=" + str(maxprice)
+        url += "&maxprice=" + str(maxprice)  # Pass the maximum price
 
     if opennow == "y":
         url += "&opennow=true"
@@ -66,15 +70,15 @@ def build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
         url += "&opennow=false"
 
     if radius != "":
-        url += "&radius=" + str(round(float(radius) * 1609.34))
+        url += "&radius=" + str(round(float(radius) * 1609.34))  # Convert miles to meters
     else:
         url += "&radius=3200"
 
-    url += "&type=restaurant" + my_api_key
+    url += "&type=restaurant" + my_api_key  # Append API key
 
     return url
 
-def build_recs(numPlaces, results, currLocCoords):
+def build_recs(numPlaces, results, currLocCoords, minprice, maxprice):
     restInstVarList = []
 
     for i in range(numPlaces):
@@ -102,6 +106,9 @@ def build_recs(numPlaces, results, currLocCoords):
         try:
             priceLevel = currPlace["price_level"]
             rest.price_level = priceLevel
+            # Only include restaurants within the price range
+            if priceLevel < minprice or priceLevel > maxprice:
+                continue  # Skip restaurants outside the price range
         except KeyError:
             pass
 

@@ -32,16 +32,17 @@ app.add_middleware(
 @app.get("/recommendations")
 async def get_recommendations(
     latitude: str = Query(..., description="Latitude"),
-    longitude: str = Query(..., description = "Longitude"),
+    longitude: str = Query(..., description="Longitude"),
     keywords: str = Query('', description="Keyword for restaurant search"),
-    minPrice: int = Query(0, description="Minimum price level ($-$$$$)"),
-    maxPrice: int = Query(4, description="Maximum price level ($-$$$$)"),
+    minPrice: int = Query(0, description="Minimum price level ($-$$$$)"),  # Minimum price ($)
+    maxPrice: int = Query(4, description="Maximum price level ($-$$$$)"),  # Maximum price ($$$$)
     openNow: bool = Query(True, description="Whether only open restaurants should be returned"),
     radius: int = Query(1000, description="Radius in meters for search area"),
 ):
-    print("Hello World")
+    # Call the get_food_recommendations function and pass the necessary parameters
     recommendations = get_food_recommendations(latitude, longitude, keywords, minPrice, maxPrice, openNow, radius)
     return recommendations
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)
