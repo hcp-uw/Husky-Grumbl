@@ -7,9 +7,12 @@ import shayna from './team-photos/shayna_suzuki.png';
 import kevin from './team-photos/kevin_kim.png';
 import mayee from './team-photos/mayee_sun.png';
 import varun from './team-photos/varun_shinde.png';
+import TopBar from './TopBar';
+
 
 function ContactUs() {
   return (
+    <div> <TopBar/>
     <div className="contact-page">
       <h1>Contact Us</h1>
       
@@ -100,6 +103,7 @@ function ContactUs() {
           </div>
         </div>     
       </div>
+    </div>
     </div>
   );
 }

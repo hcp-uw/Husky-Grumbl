@@ -50,8 +50,8 @@ function App() {
     <Router>
       <ScrollToTop />
       <div>
-        <TopBar />
         <Routes>
+        <Route path="/" element={<HomePage />} />
           <Route path="/home-page" element={<HomePage />} />
           <Route path="/explore-page" element={<ExplorePage />} />
           <Route path="/about" element={<About />} />
