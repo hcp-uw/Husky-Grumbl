@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './ExplorePage.css';
 import RestaurantCard from './RestaurantCard';
 import axios from 'axios'; // Make sure to import axios
-import TopBar from './TopBar';
 
 const ExplorePage = () => {
   const latitude = "47.6062"; // hardcoded value
@@ -115,7 +114,6 @@ const ExplorePage = () => {
   };
 
   return (
-    <div> <TopBar/>
     <div className="explore-page">
       <div className="explore-header">
         <h1 className="explore-title">
@@ -255,7 +253,6 @@ const ExplorePage = () => {
 
       </div>
     </div >
-    </div>
   );
 }
 
