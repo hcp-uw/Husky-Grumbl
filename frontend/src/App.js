@@ -1,6 +1,6 @@
 import './App.css'; // Import CSS file
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import TopBar from './TopBar';
 import ContactUs from './ContactUs'; 
@@ -8,6 +8,16 @@ import HomePage from './HomePage';
 import ExplorePage from './ExplorePage'; 
 import About from './About'; 
 import RestaurantCard from './RestaurantCard.js';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page whenever the route changes
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   // State hooks for form inputs and recommendations
@@ -38,6 +48,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div>
         <TopBar />
         <Routes>

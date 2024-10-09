@@ -25,10 +25,12 @@ const HomePage = () => {
         </section>
 
         <section className="find-dining">
-          <img src={husky} alt="husky with utensils"></img>
-          <Link to="/explore-page">
-            <button className="btn-find-dining">Find Dining</button>
-          </Link>
+          <div className="content-wrapper">
+            <img src={husky} alt="husky with utensils" />
+            <Link to="/explore-page">
+              <button className="btn-find-dining">Find Dining</button>
+            </Link>
+          </div>
         </section>
 
 

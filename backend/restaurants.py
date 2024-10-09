@@ -29,6 +29,7 @@ def get_user_coordinates(api_key, address):
 
 def get_food_recommendations(latitude, longitude, keyword, minprice, maxprice, opennow, radius):
     # Build the Google Places API URL with the price level range
+    
     url = build_url(latitude, longitude, keyword, minprice, maxprice, opennow, radius)
     
     # Send a request to Google Places API

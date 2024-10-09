@@ -21,7 +21,6 @@ body {
   margin-top: -20px;
 }
 
-
 .intro img {
   float: left;
   margin-right: 100px;
@@ -31,31 +30,39 @@ body {
   padding-top: 100px;
 }
 
+.find-dining {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  gap: 20px;
+}
+
 .find-dining img {
-  margin-right: 100px;
   max-width: 450px;
   height: auto;
-  padding-top: 100px;
 }
 
 .btn-find-dining {
-  background-color: #4F1964;
+  background-color: #9165B7;
   color: #fff;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  border: 15px solid transparent;
   font-stretch:ultra-expanded;
+  border: none;
+  padding: 15px 30px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 25px;
-  display: block;
-  margin: 10px auto; /* Centers the button and adds space above it */
-  text-align: center;
-  margin-right: 295px;
-  padding: 5px 60px; /* Adds padding inside the button */
+  font-size: 30px;
 }
 
 .btn-find-dining:hover {
-  background-color: #9165B7;
+  background-color: #4B227C;
 }
 
 

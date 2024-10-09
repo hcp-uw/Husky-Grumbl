@@ -18,7 +18,7 @@ return (
       <div className="logo-container">
         <div className="brand-name">
               <div className="brand-line-top">husky</div>
-              <div className="brand-line-bottom">grumbl</div>
+              <div className="brand-line-bottom">grumbl.</div>
         </div>
         <img src={mascot} alt="Logo" className="logo" 
         />
