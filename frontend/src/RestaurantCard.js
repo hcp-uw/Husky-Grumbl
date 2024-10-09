@@ -3,13 +3,13 @@ import './RestaurantCard.css';
 
 const priceToDollarSigns = (priceLevel) => {
   switch (priceLevel) {
-    case 0:
-      return '$';
     case 1:
-      return '$$';
+      return '$';
     case 2:
-      return '$$$';
+      return '$$';
     case 3:
+      return '$$$';
+    case 4:
       return '$$$$';
     default:
       return 'Unknown'; // Fallback case
