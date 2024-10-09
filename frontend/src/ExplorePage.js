@@ -4,7 +4,6 @@ import RestaurantCard from './RestaurantCard';
 import axios from 'axios'; // Make sure to import axios
 import TopBar from './TopBar';
 
-
 const ExplorePage = () => {
   const latitude = "47.6062"; // hardcoded value
   const longitude = "-122.3321"; // hardcoded value

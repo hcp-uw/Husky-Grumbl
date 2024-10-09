@@ -25,7 +25,7 @@ function ContactUs() {
           </div>
           <div className="team-info">
             <h3 className="team-name">Shreya Pandey</h3>
-            <p>Project Manager, Backend Lead</p>
+            <p>Project Manager, Backend Lead and Developer</p>
             <p>Email: <a href="mailto:shreya25@uw.edu">shreya25@uw.edu</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/shreyapandey2027/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Shreya Pandey</u></a></p>
           </div>
@@ -37,7 +37,7 @@ function ContactUs() {
           </div>
           <div className="team-info">
             <h3 className="team-name">Neha Pinni</h3>
-            <p>Frontend Lead</p>
+            <p>Frontend Lead and Developer</p>
             <p>Email: <a href="mailto:npinni@uw.edu">npinni@uw.edu</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/neha-pinni/" target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}><u>Neha Pinni</u></a></p>
           </div>
