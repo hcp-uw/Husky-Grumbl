@@ -9,6 +9,9 @@ my_api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4" # (Shreya's Key)
 # my_api_key = "&key=AIzaSyBsfTYeutSAt0mTeJ-_tSWas2lhlymwIlE" # (Mayee's Key)
 
 def get_user_coordinates(api_key, address):
+    if address == '':
+        address = "4063 Spokane Ln, Seattle, WA 98105"
+        
     url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}'
     response = requests.get(url)
 

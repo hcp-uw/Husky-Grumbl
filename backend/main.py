@@ -3,6 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from restaurants import get_food_recommendations
+from restaurants import get_user_coordinates
 
 # Create a FastAPI instance
 app = FastAPI()
@@ -31,8 +32,10 @@ app.add_middleware(
 # # Endpoint to get recommendations
 @app.get("/recommendations")
 async def get_recommendations(
-    latitude: str = Query(..., description="Latitude"),
-    longitude: str = Query(..., description="Longitude"),
+    # latitude: str = Query(..., description="Latitude"),
+    # longitude: str = Query(..., description="Longitude"),
+    # location: str = Query(..., description="Location"),
+    location: str = Query(' ', description="Location"),
     keywords: str = Query('', description="Keyword for restaurant search"),
     minPrice: int = Query(0, description="Minimum price level ($-$$$$)"),  # Minimum price ($)
     maxPrice: int = Query(4, description="Maximum price level ($-$$$$)"),  # Maximum price ($$$$)
@@ -40,8 +43,16 @@ async def get_recommendations(
     radius: int = Query(1000, description="Radius in meters for search area"),
 ):
     # Call the get_food_recommendations function and pass the necessary parameters
-    recommendations = get_food_recommendations(latitude, longitude, keywords, minPrice, maxPrice, openNow, radius)
+    # location = "4321 9th Ave NE, Seattle, WA 98105"
+    lat, long= get_user_coordinates("AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4", location)
+    # latitude = "43.66020092599859"
+    # longitude = "-122.31909118167822"
+    print(lat, long)
+    # recommendations = get_food_recommendations(latitude, longitude, keywords, minPrice, maxPrice, openNow, radius)
+    recommendations = get_food_recommendations(lat, long, keywords, minPrice, maxPrice, openNow, radius)
+
     return recommendations
+    # return []
 
 
 if __name__ == "__main__":
