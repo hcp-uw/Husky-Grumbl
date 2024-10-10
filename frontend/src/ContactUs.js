@@ -97,7 +97,7 @@ function ContactUs() {
           <div className="team-info">
             <h3 className="team-name">Varun Shinde</h3>
             <p>Backend Developer</p>
-            <p>Email: <a href="mailto:varunshinde217@uw.edu">varunshinde217@uw.edu</a></p>
+            <p>Email: <a href="mailto:shindev@uw.edu">shindev@uw.edu</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/shindevarun/" target="_blank" rel="noopener noreferrer"><span className="hyperlink" >Varun Shinde</span></a></p>
           </div>
         </div>     

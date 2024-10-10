@@ -33,6 +33,7 @@ app.add_middleware(
 async def get_recommendations(
     latitude: str = Query(..., description="Latitude"),
     longitude: str = Query(..., description="Longitude"),
+    # address: str = Query(..., description="Address"),
     keywords: str = Query('', description="Keyword for restaurant search"),
     minPrice: int = Query(0, description="Minimum price level ($-$$$$)"),  # Minimum price ($)
     maxPrice: int = Query(4, description="Maximum price level ($-$$$$)"),  # Maximum price ($$$$)
@@ -40,6 +41,7 @@ async def get_recommendations(
     radius: int = Query(1000, description="Radius in meters for search area"),
 ):
     # Call the get_food_recommendations function and pass the necessary parameters
+    
     recommendations = get_food_recommendations(latitude, longitude, keywords, minPrice, maxPrice, openNow, radius)
     return recommendations
 

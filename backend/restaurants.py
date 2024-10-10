@@ -2,6 +2,7 @@ import random
 import geocoder
 import requests
 import json
+import geopy.distance
 from geopy.distance import geodesic
 from restaurant import Restaurant
 
@@ -20,6 +21,34 @@ def get_user_coordinates(api_key, address):
             latitude = location['lat']
             longitude = location['lng']
             return latitude, longitude
+        else:
+            print(f"Error: {data['status']}")
+            return None
+    else:
+        print(f"Request failed with status code {response.status_code}")
+        return None
+
+def get_true_distance(api_key, origin, destination):
+    # Use Google Distance Matrix API to calculate actual road distance between source and destination
+    formatted_origin = f"{origin[0]},{origin[1]}"
+    formatted_destination = f"{destination[0]},{destination[1]}"
+
+    url = f"https://maps.googleapis.com/maps/api/distancematrix/json?origins={formatted_origin}&destinations={formatted_destination}{api_key}"
+
+    response = requests.get(url) 
+
+    if response.status_code == 200: # 200 means no error code
+        data = response.json() # parse JSON info
+        
+        if data['status'] == 'OK':
+            try:
+                # Fetch the road distance in meters and convert to miles before returning
+                distance = data['rows'][0]['elements'][0]['distance']['value']  # distance in meters
+                distance_miles = distance / 1609.34  # Convert to miles
+                return round(distance_miles, 2)
+            except(IndexError, KeyError):
+                print("Error retrieving distance data.")
+                return None
         else:
             print(f"Error: {data['status']}")
             return None
@@ -127,7 +156,8 @@ def build_recs(numPlaces, results, currLocCoords, minprice, maxprice):
         try:
             placeCoords = currPlace["geometry"]["location"]
             currPlaceCoords = (placeCoords["lat"], placeCoords["lng"])
-            distance = geodesic(currLocCoords, currPlaceCoords).miles
+            distance = geopy.distance.geodesic(currLocCoords, currPlaceCoords).miles
+            # distance = get_true_distance(my_api_key, currLocCoords, currPlaceCoords)
             rest.distance = distance
         except KeyError:
             pass
