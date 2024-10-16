@@ -192,7 +192,7 @@ const ExplorePage = () => {
                 </li>
               </ul>
 
-              <h2 className="section">Price {getPriceSymbol()}</h2>
+              <h2 className="section">Max Price {getPriceSymbol()}</h2>
               <div className="price-slider">
                 <span className="label-text">$</span>
                 <input
