@@ -4,8 +4,12 @@ import RestaurantCard from './RestaurantCard';
 import axios from 'axios'; // Make sure to import axios
 import TopBar from './TopBar';
 
-
 const ExplorePage = () => {
+  // const latitude = "46.6062"; // hardcoded value
+  // const longitude = "-122.3321"; // hardcoded value
+  // const location = "4321 9th Ave NE, Seattle, WA 98105";
+  const [location, setLocation] = useState(""); // State for address input
+
 
   // State for cuisine preferences and dietary restrictions, which will combine into a single keywords string
   const [cuisinePreferences, setCuisinePreferences] = useState({
@@ -29,12 +33,12 @@ const ExplorePage = () => {
     glutenFree: false,
   });
 
-  const [location, setLocation] = useState('');
   const [maxPrice, setMaxPrice] = useState(4);  // maxPrice by default set to $$$$
   const [minPrice, setMinPrice] = useState(0);      // minPrice by default set to $
   const [radius, setRadius] = useState(1); // distance slider in miles
   const [openNow, setOpenNow] = useState(true);      // Default to only open restaurants
   const [showRecommendations, setShowRecommendations] = useState(false); // New state to control visibility
+  const [isFocused, setIsFocused] = useState(false); // make address placeholder field appear / dissapear depending on if user clicks in field
 
 
   // Combine cuisine preferences and dietary restrictions into a keywords string
@@ -49,10 +53,6 @@ const ExplorePage = () => {
 
     // Combine cuisine and dietary restrictions into one string
     return [...cuisineKeywords, ...dietaryKeywords].join(",");
-  };
-
-  const handleLocationChange = (event) => {
-    setLocation(event.target.value); // Access the value from the event object
   };
 
   // Handle changes for cuisine preferences
@@ -94,10 +94,19 @@ const ExplorePage = () => {
     e.preventDefault();
 
     const keywords = getKeywords(); // Generate the combined keywords string
+    // console.log(latitude)
+    // console.log(longitude)
+    console.log(location);
+    console.log(keywords)
+    console.log(minPrice)
+    console.log(maxPrice)
+    console.log(openNow)
+    console.log(radius)
 
     try {
       const recommendations = await axios.get('http://localhost:8080/recommendations', {
-        params: {location, keywords, minPrice, maxPrice, openNow, radius },
+        // params: { latitude, longitude, keywords, minPrice, maxPrice, openNow, radius },
+        params: { location, keywords, minPrice, maxPrice, openNow, radius },
       });
       console.log("API response:", recommendations.data);
       setRecommendations(recommendations.data); // Update recommendations state
@@ -114,31 +123,31 @@ const ExplorePage = () => {
   return (
     <div> <TopBar />
       <div className="explore-page">
-        <div className="explore-header">
-          <h1 className="explore-title">
-            EXPLORE THE BEST SPOTS, CURATED FOR <span className="highlighted-text">YOU</span>
-          </h1>
-        </div>
-        <div>
-          <form className="locationForm">
-            <label htmlFor="location" className="prompt">Enter your address: </label>
-            <input
-              type="text"
-              className="location"
-              placeholder="1410 NE Campus Pkwy, Seattle, WA 98195 (Default Address: UW)"
-              name="location"
-              required
-              value={location}
-              onChange={handleLocationChange}
-            />
-
-            <button type="submit" className="submit-button">Search</button>
-            {/* <button type="submit">Submit</button> */}
-          </form>
-        </div>
-        <div className="explore-content">
-          <div className="sidebar">
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          <div className="explore-header">
+            <h1 className="explore-title">
+              EXPLORE THE BEST SPOTS, CURATED FOR <span className="highlighted-text">YOU</span>
+            </h1>
+            <div className="locationForm">
+                <label htmlFor="location">Enter your address:</label>
+                <input
+                  className="location"
+                  type="text"
+                  id="location"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)} // Update address state
+                  // placeholder="123 Example St, Seattle, WA"
+                  placeholder={isFocused ? '' : '1410 NE Campus Pkwy, Seattle, WA 98195 (University of Washington)'} // Conditional placeholder
+                  onFocus={() => setIsFocused(true)} // Set focused state to true
+                  onBlur={() => setIsFocused(false)} // Set focused state to false
+                // required
+                />
+                <button type="submit" className="submit-button">Search</button>
+              </div>
+    
+          </div>
+          <div className="explore-content">
+            <div className="sidebar">
               <h2 className="section">Cuisine Preferences</h2>
               <ul>
                 <li>
@@ -241,35 +250,33 @@ const ExplorePage = () => {
                 />
               </div>
 
-              {/* <button type="submit" className="submit-button">Search</button> */}
-            </form>
-          </div>
+            </div>
 
-          <div className="search-results">
-            {/* Display recommendations */}
-            {showRecommendations && recommendations.length > 0 ? (
-              <div>
-                {recommendations.map((recommendation, index) => (
-                  <div key={index} className="restaurant-card-wrapper">
-                    <RestaurantCard
-                      restaurantName={recommendation.name}
-                      totalRatings={recommendation.total_user_ratings}
-                      distance={recommendation.distance.toFixed(2)}
-                      price={recommendation.price_level}
-                      rating={recommendation.rating}
-                      isOpen={recommendation.open_now ? 'Yes' : 'No'}
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              showRecommendations && <p></p>
-            )}
+            <div className="search-results">
+              {/* Display recommendations */}
+              {showRecommendations && recommendations.length > 0 ? (
+                <div>
+                  {recommendations.map((recommendation, index) => (
+                    <div key={index} className="restaurant-card-wrapper">
+                      <RestaurantCard
+                        restaurantName={recommendation.name}
+                        totalRatings={recommendation.total_user_ratings}
+                        distance={recommendation.distance.toFixed(2)}
+                        price={recommendation.price_level}
+                        rating={recommendation.rating}
+                        isOpen={recommendation.open_now ? 'Yes' : 'No'}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                showRecommendations && <p></p>
+              )}
+            </div>
           </div>
-
-        </div>
+        </form>
       </div >
-    </div>
+    </div >
   );
 }
 
