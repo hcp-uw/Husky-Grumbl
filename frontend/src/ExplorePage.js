@@ -5,9 +5,6 @@ import axios from 'axios'; // Make sure to import axios
 import TopBar from './TopBar';
 
 const ExplorePage = () => {
-  // const latitude = "46.6062"; // hardcoded value
-  // const longitude = "-122.3321"; // hardcoded value
-  // const location = "4321 9th Ave NE, Seattle, WA 98105";
   const [location, setLocation] = useState(""); // State for address input
 
 
@@ -105,14 +102,11 @@ const ExplorePage = () => {
 
     try {
       const recommendations = await axios.get('http://localhost:8080/recommendations', {
-        // params: { latitude, longitude, keywords, minPrice, maxPrice, openNow, radius },
         params: { location, keywords, minPrice, maxPrice, openNow, radius },
       });
       console.log("API response:", recommendations.data);
       setRecommendations(recommendations.data); // Update recommendations state
       setShowRecommendations(true); // Show recommendations only after search
-      //console.log("API response:", data);
-      //setRecommendations(data); // Correctly set the recommendations state
     } catch (error) {
       console.error("Error fetching recommendations:", error);
       setRecommendations([]); // Clear recommendations on error
@@ -136,7 +130,6 @@ const ExplorePage = () => {
                   id="location"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)} // Update address state
-                  // placeholder="123 Example St, Seattle, WA"
                   placeholder={isFocused ? '' : '1410 NE Campus Pkwy, Seattle, WA 98195 (University of Washington)'} // Conditional placeholder
                   onFocus={() => setIsFocused(true)} // Set focused state to true
                   onBlur={() => setIsFocused(false)} // Set focused state to false

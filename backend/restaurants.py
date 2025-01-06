@@ -5,8 +5,7 @@ import json
 from geopy.distance import geodesic
 from restaurant import Restaurant
 
-my_api_key = "&key=AIzaSyCxduNEld5Ek1zYcr7nlrVLhJBBwlH1Fy4" # (Shreya's Key)
-# my_api_key = "&key=AIzaSyBsfTYeutSAt0mTeJ-_tSWas2lhlymwIlE" # (Mayee's Key)
+my_api_key = "&key=INSERT_KEY_HERE" # Insert your Google Places API key here!
 
 def get_user_coordinates(api_key, address):
     if address == '':
